@@ -561,13 +561,13 @@ html, body {
     padding-left: 5px !important;
   }
   .card {
-    padding: 1rem;
+    padding: 0.5rem;
   }
   .icon img {
     max-height: 50px;
   }
   h3 {
-    font-size: 1.5rem !important;
+    font-size: 1rem !important;
   }
   .about-image img {
     max-height: 50vh;
