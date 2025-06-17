@@ -5,9 +5,11 @@
     width: calc(100% - 30px);
     /* transition: max-width 0.8s ease; */
   }
+  /*
   .header-scrolled {
     max-width: calc(100% - 40px);
   }
+  */
   .hero-content h1 {
     font-size: 2rem;
   }
