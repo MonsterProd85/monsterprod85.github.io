@@ -1,3 +1,4 @@
+/* main general scaling for smaller screens */
 @media (max-width: 1000px) {
   .header {
     font-size: 12px;
@@ -59,6 +60,8 @@
     width: 100%;
     text-align: left;
     font-size: 0.9rem;
+    outline: #ffffff33 1px solid;
+    padding: 15px 20px;
   }
   .contact-grid-container {
     grid-template-columns: 1fr;
@@ -73,6 +76,7 @@
     max-width: none;
   }
 }
+/* service cards into bubbles */
 @media (max-width: 590px) {
   .card {
     padding: 1rem;
@@ -128,6 +132,7 @@
     transform: scale(1.2) translateY(3px);
   }
 }
+/* service card bubbles for smaller screens */
 @media (max-width: 440px) {
     .card {
         padding: 0.8rem;
@@ -161,6 +166,7 @@
         max-height: 200px;
     }
 }
+/* display warnings on very small screens */
 @media (max-width: 360px) {
     .resolution-warning-container {
         display: block;
@@ -171,3 +177,4 @@
         display: block;
     }
 }
+/* touch screen input */
