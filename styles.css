@@ -636,16 +636,29 @@ html, body {
   .card:nth-child(even) {
     margin-top: 20px;
   }
+  .card:nth-child(3n+1) {
+    background: #2f394274;
+  }
   .card:nth-child(3n+2) {
     z-index: 2;
+    background: #422f2f74;
+    max-width: 210px;
+    min-height: 210px;
+    max-height: 210px;
   }
   .card:nth-child(3n+3) {
-    margin-top: -40px;
+    margin-top: -50px;
     margin-right: 20px;
+    background: #42412f74;
+    max-width: 230px;
+    min-height: 230px;
+    max-height: 230px;
   }
   .card:hover {
-    transform: scale(1.05) translateY(0);
     z-index: 10;
+  }
+  .card:hover .icon {
+    transform: scale(1.2) translateY(3px);
   }
 }
 
