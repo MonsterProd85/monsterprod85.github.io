@@ -16,7 +16,11 @@ html, body {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 /* Header */
 .header {
   position: fixed;
@@ -24,7 +28,7 @@ html, body {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 1100px;
+  max-width: 1050px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,7 +84,7 @@ html, body {
   background-color: #00000099;
   -webkit-backdrop-filter: blur(40px);
   backdrop-filter: blur(40px);
-  max-width: 1050px;
+  max-width: 1000px;
   height: 50px;
   outline: rgba(255, 255, 255, 0.145) 1px solid;
   box-shadow: #111 0px 0px 10px;
@@ -164,7 +168,15 @@ html, body {
   background-color: #374db8;
   padding: 0.8rem 1.8rem;
 }
+.fa-arrow-right {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.btn-primary:hover .fa-arrow-right {
+  transform: translateX(10px) rotate(90deg) scale(1.2);
+}
 
+/* services */
 .services {
   position: relative;
   z-index: 10;
@@ -266,6 +278,9 @@ html, body {
 .btn-secondary:hover {
   background: #5a80fb;
   color: #fff;
+}
+.fa-comments {
+  margin-left: 0.5rem;
 }
 .about-image {
   flex: 1 1 300px;
@@ -466,9 +481,18 @@ html, body {
 
 .contact-form .btn-primary:hover {
   background-color: #0056b3;
-  transform: translateY(-2px);
+  transform: scale(0.99);
 }
 
+.fa-paper-plane {
+  margin-right: 10px;
+}
+
+.contact-form .btn-primary:hover .fa-paper-plane {
+  animation: smoothPaperPlane 0.5s forwards;
+}
+
+/* contact info */
 .contact-info {
   width: 100%;
   padding: 30px;
