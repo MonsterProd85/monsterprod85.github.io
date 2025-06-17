@@ -162,7 +162,7 @@ button {
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: padding 0.3s ease, background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 .btn-primary:hover {
   background-color: #374db8;

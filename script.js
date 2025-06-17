@@ -73,15 +73,50 @@ const taglines = [
   "Faites briller vos évènements",
   "Son, lumière, action !",
   "Des événements inoubliables",
-  "Créons ensemble des moments magiques"
+  "Créons ensembles des moments magiques"
 ];
-
 const mainTitleElement = document.getElementById('mainTitle');
-
 const randomIndex = Math.floor(Math.random() * taglines.length);
 const selectedTagline = taglines[randomIndex];
-
 mainTitleElement.textContent = `${selectedTagline}`;
+
+// animation for cycling through taglines
+const cycleTaglines = () => {
+  let currentIndex = 0;
+
+  // keyframe animation
+  const keyframes = `
+    @keyframes fadeOut {
+      0% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-20px); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  `;
+  
+  const styleElement = document.createElement('style');
+  styleElement.innerHTML = keyframes;
+  document.head.appendChild(styleElement);
+
+  const updateTagline = () => {
+    // fade out
+    mainTitleElement.style.animation = 'fadeOut 1s forwards';
+    
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % taglines.length;
+      mainTitleElement.textContent = taglines[currentIndex];
+      
+      // fade in
+      mainTitleElement.style.animation = 'fadeIn 1s forwards';
+    }, 1000);
+  };
+  
+  setInterval(updateTagline, 7000);
+};
+
+document.addEventListener('DOMContentLoaded', cycleTaglines);
 
 // scale about-image when hovering about button
 document.querySelector('.btn-secondary').addEventListener('mouseenter', function() {
