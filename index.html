@@ -16,6 +16,8 @@
 
   <!-- css links -->
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="content/responsive.css" />
+  <link rel="stylesheet" href="content/keyframes.css" />
   <link rel="stylesheet" href="content/fonts/fonts.css" />
 
   <!-- google font links -->
@@ -28,6 +30,13 @@
   <script src="https://kit.fontawesome.com/83722c7395.js" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="resolution-warning-container">
+    <img src="content/logo.png" alt="Monster Prod Logo" class="logo" />
+    <div class="resolution-warning">
+      <p>Hmm, il semble que votre écran n'atteigne pas la résolution minimale pour cette page. Vous pouvez continuer quand même, mais nous vous recommandons de passer à un appareil plus grand.</p>
+      <button onclick="document.querySelector('.resolution-warning-container').style.display='none'">Continuer quand même</button>
+    </div>
+  </div>
 
   <header class="header">
     <img src="content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='#home'"/>

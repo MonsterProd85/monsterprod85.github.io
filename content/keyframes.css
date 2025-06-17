@@ -1,0 +1,104 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes menubarFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0px) scale(1);
+  }
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+@keyframes outline-dash-around {
+  0% {
+    top: 0;
+    left: 0;
+    width: var(--dash-length, 20px);
+    height: var(--outline-thickness, 2px);
+    background-color: var(--outline-color, white);
+  }
+  25% {
+    top: 0;
+    left: calc(100% - var(--dash-length, 20px));
+    width: var(--dash-length, 20px);
+    height: var(--outline-thickness, 2px);
+    background-color: var(--outline-color, white);
+  }
+  25.001% {
+    top: 0;
+    left: calc(100% - var(--outline-thickness, 2px));
+    width: var(--outline-thickness, 2px);
+    height: var(--dash-length, 20px);
+    background-color: var(--outline-color, white);
+  }
+  50% {
+    top: calc(100% - var(--dash-length, 20px));
+    left: calc(100% - var(--outline-thickness, 2px));
+    width: var(--outline-thickness, 2px);
+    height: var(--dash-length, 20px);
+    background-color: var(--outline-color, white);
+  }
+  50.001% {
+    top: calc(100% - var(--outline-thickness, 2px));
+    left: calc(100% - var(--dash-length, 20px));
+    width: var(--dash-length, 20px);
+    height: var(--outline-thickness, 2px);
+    background-color: var(--outline-color, white);
+  }
+  75% {
+    top: calc(100% - var(--outline-thickness, 2px));
+    left: 0;
+    width: var(--dash-length, 20px);
+    height: var(--outline-thickness, 2px);
+    background-color: var(--outline-color, white);
+  }
+  75.001% {
+    top: calc(100% - var(--dash-length, 20px));
+    left: 0;
+    width: var(--outline-thickness, 2px);
+    height: var(--dash-length, 20px);
+    background-color: var(--outline-color, white);
+  }
+  100% {
+    top: 0;
+    left: 0;
+    width: var(--outline-thickness, 2px);
+    height: var(--dash-length, 20px);
+    background-color: var(--outline-color, white);
+  }
+}
+@keyframes outlineFadeInOn {
+  0% {
+    outline: rgba(255, 255, 255, 0) 0px solid;
+  }
+  40% {
+    outline: rgba(255, 255, 255, 0.693) 2px solid;
+  }
+  100% {
+    outline: rgba(255, 255, 255, 0.318) 1px solid;
+  }
+}

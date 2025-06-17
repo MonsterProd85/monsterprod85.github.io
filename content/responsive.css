@@ -1,0 +1,173 @@
+@media (max-width: 1000px) {
+  .header {
+    font-size: 12px;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  p {
+    font-size: 0.9rem !important;
+  }
+  a {
+    font-size: 0.9rem;
+  }
+  h2 {
+    font-size: 1.5rem !important;
+  }
+  section {
+    margin: 0rem 0vw !important;
+    padding: 2rem 5vw !important;
+  }
+  .header nav a:hover {
+    padding: 4px 7px;
+    margin: none;
+  }
+  .lastlink:hover {
+    margin-right: 14px !important;
+    padding-right: 10px !important;
+    padding-left: 5px !important;
+  }
+  .icon img {
+    max-height: 50px;
+  }
+  h3 {
+    font-size: 1rem !important;
+  }
+  .about-image img {
+    max-height: 50vh;
+  }
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+  .contact-intro {
+    margin-bottom: 0;
+  }
+  .contact-form {
+    padding: 0;
+  }
+  .contact-form label {
+    font-size: 0.9rem;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+  }
+  .contact-info ul li a {
+    width: 100%;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .contact-grid-container {
+    grid-template-columns: 1fr;
+  }
+  .contact-info {
+    padding: 0;
+  }
+  .footer {
+    padding: 1rem 2rem;
+    font-size: 0.9rem;
+    width: 90%;
+    max-width: none;
+  }
+}
+@media (max-width: 590px) {
+  .card {
+    padding: 1rem;
+    border-radius: 500px;
+    max-width: 220px;
+    min-height: 220px;
+    max-height: 220px;
+    margin: 0;
+    margin: -15px;
+    position: relative;
+    outline: rgba(255, 255, 255, 0.318) 1px solid;
+    background: #22222274;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+  .cards {
+    gap: 0rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    position: relative;
+  }
+  .card:nth-child(odd) {
+    transform: translateY(-10px);
+  }
+  .card:nth-child(even) {
+    margin-top: 20px;
+  }
+  .card:nth-child(3n+1) {
+    background: #2f394274;
+  }
+  .card:nth-child(3n+2) {
+    z-index: 2;
+    background: #422f2f74;
+    max-width: 210px;
+    min-height: 210px;
+    max-height: 210px;
+  }
+  .card:nth-child(3n+3) {
+    margin-top: -50px;
+    margin-right: 20px;
+    background: #42412f74;
+    max-width: 230px;
+    min-height: 230px;
+    max-height: 230px;
+  }
+  .card:hover {
+    z-index: 10;
+  }
+  .card:hover .icon {
+    transform: scale(1.2) translateY(3px);
+  }
+}
+@media (max-width: 440px) {
+    .card {
+        padding: 0.8rem;
+    }
+    .card h3 {
+
+        font-size: 0.9rem !important;
+    }
+    .card p {
+        font-size: 0.8rem !important;
+    }
+    .icon {
+        margin-bottom: 0;
+    }
+    .icon img {
+        max-height: 40px;
+    }
+    .card:nth-child(3n+1) {
+        max-width: 180px;
+        min-height: 180px;
+        max-height: 180px;
+    }
+    .card:nth-child(3n+2) {
+        max-width: 190px;
+        min-height: 190px;
+        max-height: 190px;
+    }
+    .card:nth-child(3n+3) {
+        max-width: 200px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+}
+@media (max-width: 360px) {
+    .resolution-warning-container {
+        display: block;
+    }
+}
+@media (max-height: 300px) {
+    .resolution-warning-container {
+        display: block;
+    }
+}

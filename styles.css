@@ -530,245 +530,63 @@ html, body {
   color: #fff;
 }
 
-/* Responsiveness */
-@media (max-width: 1000px) {
-  .header {
-    font-size: 12px;
-  }
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-  p {
-    font-size: 0.9rem !important;
-  }
-  a {
-    font-size: 0.9rem;
-  }
-  h2 {
-    font-size: 1.5rem !important;
-  }
-  section {
-    margin: 0rem 0vw !important;
-    padding: 2rem 5vw !important;
-  }
-  .header nav a:hover {
-    padding: 4px 7px;
-    margin: none;
-  }
-  .lastlink:hover {
-    margin-right: 14px !important;
-    padding-right: 10px !important;
-    padding-left: 5px !important;
-  }
-  .icon img {
-    max-height: 50px;
-  }
-  h3 {
-    font-size: 1rem !important;
-  }
-  .about-image img {
-    max-height: 50vh;
-  }
-  .btn-secondary {
-    width: 100%;
-    text-align: center;
-  }
-  .contact-intro {
-    margin-bottom: 0;
-  }
-  .contact-form {
-    padding: 0;
-  }
-  .contact-form label {
-    font-size: 0.9rem;
-  }
-  .contact-form input[type="text"],
-  .contact-form input[type="email"],
-  .contact-form textarea {
-    font-size: 0.9rem;
-    padding: 10px 12px;
-  }
-  .contact-info ul li a {
-    width: 100%;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-  .contact-grid-container {
-    grid-template-columns: 1fr;
-  }
-  .contact-info {
-    padding: 0;
-  }
-  .footer {
-    padding: 1rem 2rem;
-    font-size: 0.9rem;
-    width: 90%;
-    max-width: none;
-  }
+/* resolution warning */
+.resolution-warning-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 0, 0);
+  z-index: 9999;
+  display: none;
 }
-@media (max-width: 590px) {
-  .card {
-    padding: 1rem;
-    border-radius: 500px;
-    max-width: 220px;
-    min-height: 220px;
-    max-height: 220px;
-    margin: 0;
-    margin: -15px;
-    position: relative;
-    outline: rgba(255, 255, 255, 0.318) 1px solid;
-    background: #22222274;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
-  }
-  .cards {
-    gap: 0rem;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: auto;
-    position: relative;
-  }
-  .card:nth-child(odd) {
-    transform: translateY(-10px);
-  }
-  .card:nth-child(even) {
-    margin-top: 20px;
-  }
-  .card:nth-child(3n+1) {
-    background: #2f394274;
-  }
-  .card:nth-child(3n+2) {
-    z-index: 2;
-    background: #422f2f74;
-    max-width: 210px;
-    min-height: 210px;
-    max-height: 210px;
-  }
-  .card:nth-child(3n+3) {
-    margin-top: -50px;
-    margin-right: 20px;
-    background: #42412f74;
-    max-width: 230px;
-    min-height: 230px;
-    max-height: 230px;
-  }
-  .card:hover {
-    z-index: 10;
-  }
-  .card:hover .icon {
-    transform: scale(1.2) translateY(3px);
-  }
+.resolution-warning {
+  position: fixed;
+  transform: translateY(-50%);
+  top: 50%;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0px;
+  border-radius: 20px;
+  text-align: center;
+  outline: rgba(255, 255, 255, 0.318) 1px solid;
+}
+.resolution-warning p {
+  margin: 20px;
+}
+.resolution-warning button {
+  width: calc(100% - 40px);
+  margin: 20px;
+  margin-top: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  color: #ffffff;
+  outline: rgba(255, 255, 255, 0.474) 1px dashed;
+  cursor: pointer;
+  border: none;
+}
+.resolution-warning button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: rgba(255, 255, 255, 0.474) 1px solid;
+}
+.resolution-warning-container img {
+  width: 50vw;
+  max-width: 200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, calc(-50% - 200px));
 }
 
 /* animations */
 .fade-in {
   animation: fadeInFromBottom 0.6s forwards;
-}
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeInFromBottom {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes menubarFadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -50px) scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, 0px) scale(1);
-  }
-}
-@keyframes shake {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-@keyframes outline-dash-around {
-  0% {
-    top: 0;
-    left: 0;
-    width: var(--dash-length, 20px);
-    height: var(--outline-thickness, 2px);
-    background-color: var(--outline-color, white);
-  }
-  25% {
-    top: 0;
-    left: calc(100% - var(--dash-length, 20px));
-    width: var(--dash-length, 20px);
-    height: var(--outline-thickness, 2px);
-    background-color: var(--outline-color, white);
-  }
-  25.001% {
-    top: 0;
-    left: calc(100% - var(--outline-thickness, 2px));
-    width: var(--outline-thickness, 2px);
-    height: var(--dash-length, 20px);
-    background-color: var(--outline-color, white);
-  }
-  50% {
-    top: calc(100% - var(--dash-length, 20px));
-    left: calc(100% - var(--outline-thickness, 2px));
-    width: var(--outline-thickness, 2px);
-    height: var(--dash-length, 20px);
-    background-color: var(--outline-color, white);
-  }
-  50.001% {
-    top: calc(100% - var(--outline-thickness, 2px));
-    left: calc(100% - var(--dash-length, 20px));
-    width: var(--dash-length, 20px);
-    height: var(--outline-thickness, 2px);
-    background-color: var(--outline-color, white);
-  }
-  75% {
-    top: calc(100% - var(--outline-thickness, 2px));
-    left: 0;
-    width: var(--dash-length, 20px);
-    height: var(--outline-thickness, 2px);
-    background-color: var(--outline-color, white);
-  }
-  75.001% {
-    top: calc(100% - var(--dash-length, 20px));
-    left: 0;
-    width: var(--outline-thickness, 2px);
-    height: var(--dash-length, 20px);
-    background-color: var(--outline-color, white);
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: var(--outline-thickness, 2px);
-    height: var(--dash-length, 20px);
-    background-color: var(--outline-color, white);
-  }
-}
-@keyframes outlineFadeInOn {
-  0% {
-    outline: rgba(255, 255, 255, 0) 0px solid;
-  }
-  40% {
-    outline: rgba(255, 255, 255, 0.693) 2px solid;
-  }
-  100% {
-    outline: rgba(255, 255, 255, 0.318) 1px solid;
-  }
 }
 .in-view {
   opacity: 1 !important;
