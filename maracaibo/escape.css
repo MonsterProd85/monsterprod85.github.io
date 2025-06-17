@@ -58,6 +58,7 @@ header h1 {
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
   filter: sepia(0.1) contrast(1.05);
+  object-fit: cover;
 }
 
 .cta {
