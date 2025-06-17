@@ -39,7 +39,7 @@
   </div>
 
   <header class="header">
-    <img src="content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='#home'"/>
+    <img src="content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='?'"/>
     <nav>
       <ul>
         <li><a hidden href="maracaibo/">Maracaïbo</a></li>
@@ -52,10 +52,11 @@
 
   <section id="home" class="hero">
     <div class="video-transition-box"></div>
+    <div hidden class="pause-button"><i class="fa-solid fa-circle-pause"></i></div>
     <video autoplay muted playsinline loop id="bg-video">
       <source src="content/video_presentation.mp4" type="video/mp4" />
       <source src="content/video_presentation_h.265.mp4" type="video/mp4" />
-      Votre navigateur ne supporte pas la vidéo.
+      Votre navigateur ne supporte pas cette type de vidéo.
     </video>
     <div class="overlay"></div>
     <div class="hero-content">

@@ -176,6 +176,23 @@ button {
   transform: translateX(10px) rotate(90deg) scale(1.2);
 }
 
+/* currently unused */
+.pause-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  z-index: 20;
+  font-size: 1.5rem;
+  color: #ffffff55;
+}
+
 /* services */
 .services {
   position: relative;
@@ -273,10 +290,10 @@ button {
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  transition: background 0.3s, color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 .btn-secondary:hover {
-  background: #5a80fb;
+  background-color: #5a80fb;
   color: #fff;
 }
 .fa-comments {
