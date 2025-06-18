@@ -86,9 +86,6 @@
   .card {
     padding: 1rem;
     border-radius: 500px;
-    max-width: 220px;
-    min-height: 220px;
-    max-height: 220px;
     margin: 0;
     margin: -15px;
     position: relative;
@@ -105,6 +102,8 @@
     justify-content: center;
     width: auto;
     position: relative;
+    max-height: 400px;
+    min-height: 400px;
   }
   .card:nth-child(odd) {
     transform: translateY(-10px);
@@ -113,22 +112,31 @@
     margin-top: 20px;
   }
   .card:nth-child(3n+1) {
+    max-width: var(--card-resolution);
+    min-height: var(--card-resolution);
+    max-height: var(--card-resolution);
+    --card-resolution: 210px;
     background: #2f394274;
+    animation: floatingBubble1 20s ease-in-out infinite alternate;
   }
   .card:nth-child(3n+2) {
     z-index: 2;
     background: #422f2f74;
-    max-width: 210px;
-    min-height: 210px;
-    max-height: 210px;
+    max-width: var(--card-resolution);
+    min-height: var(--card-resolution);
+    max-height: var(--card-resolution);
+    --card-resolution: 210px;
+    animation: floatingBubble2 10s ease-in-out infinite alternate;
   }
   .card:nth-child(3n+3) {
     margin-top: -50px;
     margin-right: 20px;
     background: #42412f74;
-    max-width: 230px;
-    min-height: 230px;
-    max-height: 230px;
+    max-width: var(--card-resolution);
+    min-height: var(--card-resolution);
+    max-height: var(--card-resolution);
+    --card-resolution: 230px;
+    animation: floatingBubble3 15s ease-in-out infinite alternate;
   }
   .card:hover {
     z-index: 10;
@@ -138,7 +146,7 @@
   }
 }
 /* service card bubbles for smaller screens */
-@media (max-width: 440px) {
+@media (max-width: 460px) {
     .card {
         padding: 0.8rem;
     }
@@ -149,6 +157,10 @@
     .card p {
         font-size: 0.8rem !important;
     }
+    .cards {
+        max-height: 330px;
+        min-height: 330px;
+    }
     .icon {
         margin-bottom: 0;
     }
@@ -156,21 +168,34 @@
         max-height: 40px;
     }
     .card:nth-child(3n+1) {
-        max-width: 180px;
-        min-height: 180px;
-        max-height: 180px;
+        --card-resolution: 180px;
     }
     .card:nth-child(3n+2) {
-        max-width: 190px;
-        min-height: 190px;
-        max-height: 190px;
+        --card-resolution: 190px;
     }
     .card:nth-child(3n+3) {
-        max-width: 200px;
+        /* max-width: 200px;
         min-height: 200px;
-        max-height: 200px;
+        max-height: 200px; */
+        --card-resolution: 200px;
     }
 }
+@media (max-width: 390px) {
+    .cards {
+        max-height: 300px;
+        min-height: 300px;
+    }
+    .card:nth-child(3n+1) {
+        --card-resolution: 170px;
+    }
+    .card:nth-child(3n+2) {
+        --card-resolution: 165px;
+    }
+    .card:nth-child(3n+3) {
+        --card-resolution: 185px;
+    }
+}
+
 /* display warnings on very small screens */
 @media (max-width: 360px) {
     .resolution-warning-container {
