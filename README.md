@@ -15,4 +15,3 @@ Si vous souhaitez l’utiliser ou vous en inspirer, merci de nous contacter au p
 
 ---
 © MonsterProd
-*retrouvez nous sur Instagram & Facebook!*
