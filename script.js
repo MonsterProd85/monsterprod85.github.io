@@ -151,3 +151,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+
+/* touch screen input */
+if ('ontouchstart' in window) {
+  try {
+    for (let sheet of document.styleSheets) {
+      for (let i = sheet.cssRules.length - 1; i >= 0; i--) {
+        if (sheet.cssRules[i].selectorText?.includes(':hover')) {
+          sheet.deleteRule(i);
+        }
+      }
+    }
+  } catch(e) {}
+}
