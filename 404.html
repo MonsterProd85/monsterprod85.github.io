@@ -1,7 +1,64 @@
-/* General Body and HTML Reset */
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>404 - Page Introuvable | Monster Prod</title>
+  <link rel="icon" href="../content/favicon.png" type="image/x-icon" />
+  <!-- Google Fonts: Duplet for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="main-header">
+    <a href="../" class="logo-link">
+      <img src="../content/logo.png" alt="Monster Prod Logo" class="header-logo" />
+    </a>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../">Accueil</a></li>
+        <li><a href="../#services">Services</a></li>
+        <li><a href="../#about">Nous</a></li>
+        <li><a href="../#contact">Nous Contacter</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="error-content">
+    <h1 class="error-code">404</h1>
+    <h2 class="error-message">Oups ! On dirait que vous êtes perdu.</h2>
+    <p class="error-description">La page que vous recherchez n'existe malheureusement pas ou a été déplacée.</p>
+  </main>
+
+  <footer class="main-footer">
+    <ul class="footer-links">
+      <li><a href="../conditions/">Conditions de Service</a></li>
+      <li><a href="../crédits/">Crédits</a></li>
+    </ul>
+    <p class="copyright">© Monster Prod <span id="year"></span></p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const yearSpan = document.getElementById('year');
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+  <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("date").textContent = new Date().toLocaleDateString("fr-FR");
+</script>
+
+</body>
+</html>
+
+<style>
 :root {
-    --primary-color: #ffffff; /* Example blue */
-    --secondary-color: #f3f5f7; /* Example grey */
+    --primary-color: #ffffff;
+    --secondary-color: #f3f5f7; 
     --accent-color: #e1e2eb; /* Orange for emphasis */
     --text-dark: #f0e7e7;
     --text-light: #ffffff;
@@ -261,3 +318,5 @@ body {
     transform: scale(1) translateY(0);
   }
 }
+
+</style>
