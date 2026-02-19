@@ -533,6 +533,8 @@ button {
   margin-bottom: 0;
 }
 
+
+
 .contact-info ul li {
   font-family: 'Poppins', sans-serif;
   font-size: 1.1em;
@@ -541,6 +543,7 @@ button {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-bottom: 10px; /* Add some space between items */
 }
 
 .contact-info ul li a {
@@ -570,6 +573,73 @@ button {
 .contact-info ul li a:hover i {
   color: #fff;
 }
+
+/* Update 1: Ensure the list item is a block and handles its content */
+.contact-info ul li {
+  /* No special positioning is needed, let it be in normal flow */
+  /* If you had a rule like 'position: static' or 'position: relative', ensure it is correct */
+  margin-bottom: 10px; /* Add some space between items */
+}
+
+/* Update 2: Refine the address-container (now it contains all address info) */
+.contact-info ul li .address-container {
+  /* Set position relative IF you decide to keep the absolute positioning later,
+     but for the flow issue, let's keep it simple first. */
+  /* Remove position: relative for now if you only want it to push content */
+  display: block; 
+  cursor: pointer;
+}
+
+/* Update 3: Style the hidden content (Opening Times) */
+.opening-times {
+  /* Remove position: absolute to keep it in the flow! */
+  /* It will now push the elements below it when it expands. */
+  
+  /* Appearance */
+  background: #333; /* Dark background for contrast */
+  color: white; /* Light text */
+  border: 1px solid var(--color-primary, #007bff);
+  padding: 0 15px; /* Adjust padding to be vertical-only for max-height transition */
+  margin-top: 5px;
+  min-width: 100%; /* Take full width of the list item */
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  
+  /* Hiding mechanism & Transition */
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden; 
+  overflow: hidden;
+  
+  /* Smooth transition effect */
+  /* Add padding transition to avoid content jump */
+  transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.5s ease-out, visibility 0.4s; 
+}
+
+/* Update 4: Style the table content within the times block */
+.opening-times h4,
+.opening-times table {
+    /* Set margin/padding for the content to ensure it fits in the max-height */
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+/* Update 5: Hover effect: Reveal the content and padding */
+.address-container:hover .opening-times {
+  /* Expand the height to reveal content (300px must be more than enough) */
+  max-height: 300px; 
+  opacity: 1;
+  visibility: visible;
+  padding-top: 10px;    /* Restore vertical padding on hover */
+  padding-bottom: 10px; /* Restore vertical padding on hover */
+}
+
+/* Optional: Add a subtle text hover effect to the address itself */
+/* Ensure the address link itself is targeted correctly */
+.address-container > a:hover {
+  color: var(--color-primary, #007bff); 
+}
+
 
 /* resolution warning */
 .resolution-warning-container {

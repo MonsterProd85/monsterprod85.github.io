@@ -68,7 +68,6 @@ function addAnimationToCardsOnScroll() {
   }
 }
 
-// randomise the tagline in the main title
 const taglines = [
   "Faites briller vos évènements",
   "Son, lumière, action !",

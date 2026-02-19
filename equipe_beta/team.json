@@ -1,0 +1,15 @@
+{
+  "presidents": [
+    { "name": "Mélissa TRICHET", "role": "Présidente", "photo": "content/team-president1.jpg" },
+     { "name": "Alix BACHELIER", "role": "Vice-Président", "photo": "content/team-president2.jpg" }
+   
+  ],
+  "membres": [
+    { "name": "Lou MENDES", "role": "Secrétaire", "photo": "content/team-secretaire.jpg" },
+    { "name": "Lily PINTUREAU", "role": "Trésorière", "photo": "content/team-secretaire.jpg" },
+    { "name": "Éléa PUAUD", "role": "Trésorière Adjointe", "photo": "content/team-supleant.jpg" }
+  ],
+  "benevoles": [
+    "N/A"
+  ]
+}
