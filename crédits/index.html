@@ -1,98 +1,88 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crédits</title>
-  <link rel="icon" href="../content/favicon.png" type="image/x-icon" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crédits | Monster Prod</title>
+
+<link rel="icon" href="../content/favicon.png" type="image/x-icon" />
+
+<link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="styles.css" />
+
 </head>
+
 <body>
 
-  <header>
-    <img src="../content/logo.png" alt="Monster Prod Logo" />
-    <nav>
-      <ul>
-        <li><a href="../">Accueil</a></li>
-        <li><a href="../#services">Services</a></li>
-        <li><a href="../#about">Nous</a></li>
-        <li><a href="../#contact">Nous Contacter</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <h1>Crédits</h1>
-    <p class="update-date">Dernière mise à jour : 11 juin 2025</p>
-
-    <section>
-      <h2>Développement & Conception</h2>
-      <div class="credit-item">
-        <p><strong>Conception UI/UX & Développement Front-end :</strong></p>
-        <p>
-          Cheff du développement du site : Alix Bachelier
-        </p>
-        <p>
-          Développeurs Principaux : Alix Bachelier & Antoine Rossi
-        </p>
-        <p>
-          Technologies utilisées : HTML5, CSS3, JavaScript
-        </p>
-      </div>
-      <div class="credit-item">
-        <p><strong>Intégration et Optimisation :</strong></p>
-        <p>
-          Théo Chauvet, Antoine Rossi
-        </p>
-      </div>
-    </section>
-
-    <section>
-      <h2>Ressources et Contributions</h2>
-      <div class="credit-item">
-        <p><strong>Icônes & Illustrations :</strong></p>
-        <ul>
-          <li>Icônes par <a href="https://fontawesome.com/" target="_blank" rel="noopener noreferrer">Font Awesome</a></li>
-        </ul>
-      </div>
-      <div class="credit-item">
-        <p><strong>Polices :</strong></p>
-        <ul>
-          <li>
-            Police "Montserrat" via <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a>
-          </li>
-         <li>
-            Police "Duplet" via <a href="https://befonts.com" target="_blank" rel="noopener noreferrer">Befonts</a>
-          </li>
-        </ul>
-      </div>
-      <div class="credit-item">
-        <p><strong>Plateformes & Outils :</strong></p>
-        <ul>
-          <li>Contrôle de version : <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-          <li>reCAPTCHA par <a href="https://www.google.com/recaptcha/about/" target="_blank" rel="noopener noreferrer">Google</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
+<header class="header">
+  <img src="../content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='../'"/>
+  <nav>
     <ul>
-      <li><a href="../conditions/">Conditions de Service</a></li>
-      <li><a href="../crédits/">Crédits</a></li>
+      <li><a href="../">Accueil</a></li>
+      <li><a href="../#services">Services</a></li>
+      <li><a href="../#about">Nous</a></li>
+      <li><a href="../#contact">Contact</a></li>
     </ul>
-    <p>© Monster Prod <span id="year"></span></p>
-  </footer>
+  </nav>
+</header>
 
-  <script src="../script.js"></script>
-  <script>
-    function enablePhone() {
-      document.getElementById("phone-container").classList.remove("phone-hidden");
-    }
-    // Set current year for the footer
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<main class="legal-page">
+
+  <h1>Crédits</h1>
+  <p class="update-date">Dernière mise à jour : 11 juin 2025</p>
+
+  <section>
+
+    <h2>Développement & Conception</h2>
+
+    <div class="credit-block">
+      <p><strong>Conception UI/UX & Développement Front-end :</strong></p>
+      <p>Chef du développement : Alix Bachelier</p>
+      <p>Développeurs principaux : Alix Bachelier & Antoine Rossi</p>
+      <p>Technologies : HTML5, CSS3, JavaScript</p>
+    </div>
+
+    <div class="credit-block">
+      <p><strong>Intégration et Optimisation :</strong></p>
+      <p>Théo Chauvet, Antoine Rossi</p>
+    </div>
+
+    <h2>Ressources & Contributions</h2>
+
+    <div class="credit-block">
+      <p><strong>Icônes :</strong></p>
+      <p>Font Awesome</p>
+    </div>
+
+    <div class="credit-block">
+      <p><strong>Polices :</strong></p>
+      <p>Montserrat via Google Fonts</p>
+      <p>Duplet via Befonts</p>
+    </div>
+
+    <div class="credit-block">
+      <p><strong>Outils :</strong></p>
+      <p>GitHub</p>
+      <p>Google reCAPTCHA</p>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <a href="../conditions/">Conditions</a> •
+    <a href="../crédits/">Crédits</a>
+  </div>
+  <p>© Monster Prod <span id="year"></span></p>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>

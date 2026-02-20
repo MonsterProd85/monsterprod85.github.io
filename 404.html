@@ -1,322 +1,153 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>404 - Page Introuvable | Monster Prod</title>
-  <link rel="icon" href="../content/favicon.png" type="image/x-icon" />
-  <!-- Google Fonts: Duplet for headings -->
-  <link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 - Page Introuvable | Monster Prod</title>
+<link rel="icon" href="../content/favicon.png" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body {
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  background: #111111;
+  color: #ffffff;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.header {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  background: rgba(20,20,20,0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.header img {
+  height: 48px;
+  cursor: pointer;
+}
+.header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.header nav a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.header nav a:hover {
+  color: #ffffff;
+}
+.error-section {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 2rem;
+}
+.error-content {
+  max-width: 700px;
+}
+.error-code {
+  font-family: 'Duplet', sans-serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  margin-bottom: 1rem;
+}
+.error-message {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.error-description {
+  color: #bbb;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.btn-primary {
+  background: #1e40af;
+  color: #fff;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+}
+.btn-primary:hover {
+  background-color: #374db8;
+}
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+.footer a:hover {
+  color: #ffffff;
+}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+  }
+  .header nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+</style>
 </head>
 <body>
-
-  <header class="main-header">
-    <a href="../" class="logo-link">
-      <img src="../content/logo.png" alt="Monster Prod Logo" class="header-logo" />
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="../">Accueil</a></li>
-        <li><a href="../#services">Services</a></li>
-        <li><a href="../#about">Nous</a></li>
-        <li><a href="../#contact">Nous Contacter</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="error-content">
-    <h1 class="error-code">404</h1>
-    <h2 class="error-message">Oups ! On dirait que vous êtes perdu.</h2>
-    <p class="error-description">La page que vous recherchez n'existe malheureusement pas ou a été déplacée.</p>
-  </main>
-
-  <footer class="main-footer">
-    <ul class="footer-links">
-      <li><a href="../conditions/">Conditions de Service</a></li>
-      <li><a href="../crédits/">Crédits</a></li>
+<header class="header">
+  <img src="../content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='../'"/>
+  <nav>
+    <ul>
+      <li><a href="../#services">Services</a></li>
+      <li><a href="../#about">Nous</a></li>
+      <li><a href="../#contact">Contact</a></li>
     </ul>
-    <p class="copyright">© Monster Prod <span id="year"></span></p>
-  </footer>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const yearSpan = document.getElementById('year');
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
-    });
-  </script>
-
-  <script>
+  </nav>
+</header>
+<section class="error-section">
+  <div class="error-content">
+    <h1 class="error-code">404</h1>
+    <h2 class="error-message">Cette page n'existe pas.</h2>
+    <p class="error-description">
+      La page que vous recherchez a peut-être été déplacée ou supprimée.
+    </p>
+    <a href="../" class="btn-primary">Retour à l'accueil</a>
+  </div>
+</section>
+<footer class="footer">
+  <div>
+    <a href="../conditions/">Conditions</a> •
+    <a href="../crédits/">Crédits</a>
+  </div>
+  <p>© Monster Prod <span id="year"></span></p>
+</footer>
+<script>
 document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("date").textContent = new Date().toLocaleDateString("fr-FR");
 </script>
-
 </body>
 </html>
-
-<style>
-:root {
-    --primary-color: #ffffff;
-    --secondary-color: #f3f5f7; 
-    --accent-color: #e1e2eb; /* Orange for emphasis */
-    --text-dark: #f0e7e7;
-    --text-light: #ffffff;
-    --bg-light: #000000;
-    --bg-dark: #000000; /* A slightly off-white for background */
-    --border-radius: 8px;
-    --font-duplet: 'Duplet', sans-serif;
-    --font-sans: 'Inter', sans-serif; /* Assuming Inter is a fallback or main font */
-}
-
-html {
-    box-sizing: border-box;
-    font-size: 16px; /* Base font size */
-}
-
-*, *::before, *::after {
-    box-sizing: inherit;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--bg-dark); /* Light background for the body */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Full viewport height */
-    overflow-x: hidden; /* Prevent horizontal scroll */
-}
-
-/* Header Styling */
-.main-header {
-    background-color: var(--bg-light); /* Light header background */
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex-wrap: wrap; /* Allow header content to wrap */
-}
-
-.header-logo {
-    height: 50px; /* Adjust as needed */
-    max-width: 100%;
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap; /* Allow nav items to wrap */
-    justify-content: center; /* Center nav items when wrapped */
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: var(--primary-color); /* Dark text for nav links */
-    font-weight: 600;
-    padding: 0.5rem 0.8rem;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.main-nav a:hover,
-.main-nav a:focus {
-    background-color: var(--primary-color);
-    color: var(--text-light); /* Light text on hover */
-}
-
-/* Main Content - Error Page Specifics */
-.error-content {
-    flex-grow: 1; /* Allows main content to take up available space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--bg-light); /* Light main content background */
-    margin: 2rem auto; /* Center the main content block */
-    max-width: 800px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.error-code {
-    font-family: var(--font-duplet);
-    font-size: 8em; /* Very large for impact */
-    font-weight: 700;
-    color: var(--accent-color);
-    margin-bottom: 0.2em;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-    animation: bounceIn 1s ease-out; /* Simple entry animation */
-}
-
-.error-message {
-    font-family: var(--font-duplet);
-    font-size: 2.5em;
-    color: var(--text-dark); /* Dark text */
-    margin-bottom: 1em;
-}
-
-.error-description {
-    font-size: 1.1em;
-    max-width: 600px;
-    margin-bottom: 2em;
-    color: #555; /* Slightly lighter dark text */
-}
-
-.button-group {
-    display: flex;
-    gap: 1.5rem; /* Space between buttons */
-    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
-    justify-content: center;
-}
-
-.button {
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    font-weight: bold;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.primary-button {
-    background-color: var(--primary-color);
-    color: var(--text-light); /* Light text on primary button */
-    border: 2px solid var(--primary-color);
-}
-
-.primary-button:hover {
-    background-color: #0056b3; /* Darker blue */
-    border-color: #0056b3;
-}
-
-.secondary-button {
-    background-color: transparent;
-    color: var(--primary-color); /* Dark text on secondary button */
-    border: 2px solid var(--primary-color);
-}
-
-.secondary-button:hover {
-    background-color: var(--primary-color);
-    color: var(--text-light); /* Light text on hover */
-}
-
-/* Footer Styling */
-.main-footer {
-    background-color: var(--bg-light); /* Now light footer background */
-    color: var(--text-dark); /* Dark text for footer */
-    padding: 1.5rem 2rem;
-    text-align: center;
-    margin-top: auto; /* Push footer to the bottom */
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow at top */
-}
-
-.footer-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    flex-wrap: wrap; /* Allow links to wrap */
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: var(--text-dark); /* Dark text for footer links */
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-}
-
-.copyright {
-    font-size: 0.9em;
-    color: #777; /* Slightly lighter dark text for copyright */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-        width: 100%;
-        text-align: center;
-    }
-
-    .error-code {
-        font-size: 6em;
-    }
-
-    .error-message {
-        font-size: 2em;
-    }
-
-    .button-group {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .button {
-        width: 80%; /* Make buttons wider on small screens */
-        max-width: 300px;
-        margin: 0 auto; /* Center buttons */
-    }
-}
-
-@media (max-width: 480px) {
-    .error-code {
-        font-size: 4em;
-    }
-
-    .error-message {
-        font-size: 1.5em;
-    }
-
-    .error-description {
-        font-size: 1em;
-    }
-}
-
-/* Keyframe Animations */
-@keyframes bounceIn {
-  0% {
-    opacity: 0;
-    transform: scale(0.3) translateY(-50px);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05) translateY(10px);
-  }
-  70% {
-    transform: scale(0.95) translateY(-5px);
-  }
-  100% {
-    transform: scale(1) translateY(0);
-  }
-}
-
-</style>

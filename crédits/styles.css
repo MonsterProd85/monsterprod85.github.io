@@ -1,239 +1,126 @@
-/* General modern styling for the credit page */
-
-/* Reset et font */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Using Montserrat for a modern feel, you can keep Duplet if it's a custom font you have */
-    background-color: #121212;
-    color: #eee;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background: #111111;
 }
 
-/* Header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background: rgba(20, 20, 20, 0.95);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2rem;
-    z-index: 1000;
+.header {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8%;
+  background: rgba(20, 20, 20, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-header img {
-    height: 50px;
+.header img {
+  height: 48px;
+  cursor: pointer;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+.header nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
 
-nav a {
-    color: #eee;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
+.header nav a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-nav a:hover {
-    color: #1e40af;
+.header nav a:hover {
+  color: #ffffff;
 }
 
-/* Main content */
-main {
-    max-width: 900px;
-    margin: 90px auto 3rem;
-    padding: 0 1rem;
-    flex-grow: 1; /* Allow main to grow and push footer down */
+.legal-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 2rem;
 }
 
-main h1 {
-    font-size: 3.2rem; /* Slightly larger for impact */
-    font-weight: 700;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: #ffffff; /* Highlight the main title e */
-    letter-spacing: 1px;
+.legal-page h1 {
+  font-family: 'Duplet', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .update-date {
-    text-align: center;
-    margin-bottom: 3rem; /* More space for a cleaner look */
-    color: #888;
-    font-style: italic;
-    font-size: 0.95rem;
-}
-
-section {
-    background-color: #1a1a1a; /* Slightly lighter background for sections */
-    border-radius: 12px; /* Rounded corners for sections */
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  text-align: center;
+  color: #9a9a9a;
+  margin-bottom: 3rem;
+  font-size: 0.95rem;
 }
 
 section h2 {
-    font-size: 2rem; /* Larger section titles */
-    margin-bottom: 1.5rem;
-    color: #eee;
-    border-bottom: 2px solid #1e40af; /* Underline with accent color */
-    padding-bottom: 0.5rem;
-    text-align: center;
+  font-family: 'Duplet', sans-serif;
+  font-size: 1.6rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
 }
 
-.credit-item {
-    margin-bottom: 1.5rem;
-    padding-left: 1rem;
-    border-left: 3px solid #1e40af; /* Accent border on the left */
+section p,
+.credit-block p {
+  color: #cfcfcf;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
 }
 
-.credit-item:last-child {
-    margin-bottom: 0;
+.credit-block {
+  margin-bottom: 2rem;
 }
 
-.credit-item p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    color: #ccc;
+.footer {
+  text-align: center;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  color: #aaa;
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.credit-item ul {
-    list-style: none; /* Remove default list style */
-    padding-left: 0;
-    margin-top: 0.8rem;
+.footer a {
+  color: #aaa;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.3s ease;
 }
 
-.credit-item ul li {
-    margin-bottom: 0.4rem;
-    position: relative;
-    padding-left: 1.5rem; /* Space for custom bullet */
+.footer a:hover {
+  color: #ffffff;
 }
 
-.credit-item ul li:before {
-    content: '•'; /* Custom bullet point */
-    color: #1e40af;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
-    line-height: 1;
-}
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+  }
 
-.credit-item a {
-    color: #4CAF50; /* A distinct color for links */
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.credit-item a:hover {
-    color: #66BB6A;
-    text-decoration: underline;
-}
-
-/* Footer */
-footer {
-    background-color: #111;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    color: #aaa;
-    font-size: 0.9rem;
-    margin-top: auto;
-}
-
-footer ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin-bottom: 1rem;
-    padding: 0;
-}
-
-footer a {
-    color: #aaa;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-footer a:hover {
-    color: #fff;
-}
-
-/* Existing contact form styles, not directly used on this page but kept for context */
-.contact-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    display: flex;
+  .header nav ul {
     flex-direction: column;
     gap: 1rem;
-}
+    align-items: center;
+  }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
-}
-
-.closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.closebtn:hover {
-    color: black;
-}
-
-.contact-form input,
-.contact-form textarea {
-    padding: 0.8rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #222;
-    color: #eee;
-}
-
-.contact-form button {
-    background-color: #1e40af;
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.contact-form button:hover {
-    background-color: #1e3a8a;
-}
-
-#phone-container {
-    margin-top: 2rem;
-    text-align: center;
-    font-size: 1.2rem;
-}
-
-.phone-hidden {
-    display: none;
+  .legal-page {
+    padding: 60px 1.5rem;
+  }
 }
