@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pro SPL Meter</title>
+<title>Meter</title>
 
 <style>
 body{
@@ -28,7 +28,6 @@ body{
     justify-content:space-between;
 }
 
-/* DOT MATRIX */
 .digit{
     display:grid;
     grid-template-columns: repeat(5,1fr);
@@ -100,9 +99,9 @@ let analyser, dataArray;
 let peak = 0;
 let leqSum = 0;
 let leqCount = 0;
-let smoothDb = 0; // smoothing value
+let smoothDb = 0;
 
-const patterns = { /* same patterns as before */
+const patterns = {
 "0":["11111","10001","10001","10001","10001","10001","11111"],
 "1":["00100","01100","00100","00100","00100","00100","01110"],
 "2":["11111","00001","00001","11111","10000","10000","11111"],
@@ -179,7 +178,6 @@ function updateMeter(){
     let db=20*Math.log10(rms);
     db=Math.max(0,db+100);
 
-    // smoothing (real meter feel)
     smoothDb = smoothDb*0.8 + db*0.2;
     let displayDb=Math.round(smoothDb);
 
