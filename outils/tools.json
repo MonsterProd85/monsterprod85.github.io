@@ -4,5 +4,12 @@
     "description": "Afficher une vidéo en même temps que de la musique Spotify.",
     "credit": "Antoine Rossi",
     "url": "/outils/video-spotify"
+  },
+
+  {
+    "name": "Mètre de décibels",
+    "description": "Afficher un mètre de décibels en temps réel.",
+    "credit": "Monster Prod",
+    "url": "/outils/meter"
   }
 ]

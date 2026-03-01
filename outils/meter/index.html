@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro SPL Meter</title>
+
+<style>
+body{
+    margin:0;
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    font-family: monospace;
+}
+
+.panel{
+    width:95vw;
+    height:90vh;
+    background:black;
+    border-radius:10px;
+    box-shadow:0 0 40px #000 inset;
+    padding:3vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* DOT MATRIX */
+.digit{
+    display:grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(7,1fr);
+    gap:6px;
+}
+
+.dot{
+    width:1.8vw;
+    height:1.8vw;
+    border-radius:50%;
+    background:#021;
+}
+
+.on.green{background:#00ff00; box-shadow:0 0 8px #00ff00;}
+.on.orange{background:#ff9900; box-shadow:0 0 8px #ff9900;}
+.on.red{background:#ff0000; box-shadow:0 0 8px #ff0000;}
+
+.row{display:flex; gap:2vw; align-items:center; justify-content:center;}
+
+.scale{
+    display:flex;
+    gap:6px;
+    justify-content:center;
+}
+
+.scale-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#021;
+}
+
+.scale-dot.green.active{background:#00ff00;}
+.scale-dot.orange.active{background:#ff9900;}
+.scale-dot.red.active{background:#ff0000;}
+
+.small{
+    color:white;
+    font-size:1.2vw;
+    text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="panel">
+
+    <div class="row" id="mainDisplay"></div>
+
+    <div class="scale" id="scaleBar"></div>
+
+    <div class="row" style="justify-content:space-between;">
+        <div>
+            <div class="small">Leq</div>
+            <div class="row" id="leqDisplay"></div>
+        </div>
+        <div>
+            <div class="small">Peak</div>
+            <div class="row" id="peakDisplay"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+let analyser, dataArray;
+let peak = 0;
+let leqSum = 0;
+let leqCount = 0;
+let smoothDb = 0; // smoothing value
+
+const patterns = { /* same patterns as before */
+"0":["11111","10001","10001","10001","10001","10001","11111"],
+"1":["00100","01100","00100","00100","00100","00100","01110"],
+"2":["11111","00001","00001","11111","10000","10000","11111"],
+"3":["11111","00001","00001","11111","00001","00001","11111"],
+"4":["10001","10001","10001","11111","00001","00001","00001"],
+"5":["11111","10000","10000","11111","00001","00001","11111"],
+"6":["11111","10000","10000","11111","10001","10001","11111"],
+"7":["11111","00001","00001","00010","00100","01000","01000"],
+"8":["11111","10001","10001","11111","10001","10001","11111"],
+"9":["11111","10001","10001","11111","00001","00001","11111"]
+};
+
+function createDigit(num,color){
+    const container=document.createElement("div");
+    container.className="digit";
+    patterns[num].forEach(row=>{
+        row.split("").forEach(cell=>{
+            const dot=document.createElement("div");
+            dot.className="dot";
+            if(cell==="1") dot.classList.add("on",color);
+            container.appendChild(dot);
+        });
+    });
+    return container;
+}
+
+function renderNumber(id,value,color){
+    const el=document.getElementById(id);
+    el.innerHTML="";
+    value.toString().split("").forEach(d=>{
+        el.appendChild(createDigit(d,color));
+    });
+}
+
+function createScale(){
+    const scale=document.getElementById("scaleBar");
+    for(let i=0;i<40;i++){
+        const dot=document.createElement("div");
+        dot.className="scale-dot";
+        scale.appendChild(dot);
+    }
+}
+
+function updateScale(db){
+    const dots=document.querySelectorAll(".scale-dot");
+    const active=Math.floor(db/3);
+    dots.forEach((d,i)=>{
+        d.classList.remove("green","orange","red","active");
+        if(i<active){
+            d.classList.add("active");
+            if(db<80) d.classList.add("green");
+            else if(db<100) d.classList.add("orange");
+            else d.classList.add("red");
+        }
+    });
+}
+
+function getColor(db){
+    if(db<80) return "green";
+    if(db<100) return "orange";
+    return "red";
+}
+
+function updateMeter(){
+    analyser.getByteTimeDomainData(dataArray);
+
+    let sumSquares=0;
+    for(let i=0;i<dataArray.length;i++){
+        let v=(dataArray[i]-128)/128;
+        sumSquares+=v*v;
+    }
+
+    let rms=Math.sqrt(sumSquares/dataArray.length);
+    let db=20*Math.log10(rms);
+    db=Math.max(0,db+100);
+
+    // smoothing (real meter feel)
+    smoothDb = smoothDb*0.8 + db*0.2;
+    let displayDb=Math.round(smoothDb);
+
+    if(displayDb>peak) peak=displayDb;
+
+    leqSum+=displayDb;
+    leqCount++;
+    let avg=Math.round(leqSum/leqCount);
+
+    const color=getColor(displayDb);
+
+    renderNumber("mainDisplay",displayDb,color);
+    renderNumber("leqDisplay",avg,"red");
+    renderNumber("peakDisplay",peak,"green");
+
+    updateScale(displayDb);
+
+    requestAnimationFrame(updateMeter);
+}
+
+async function init(){
+    const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const source=ctx.createMediaStreamSource(stream);
+    analyser=ctx.createAnalyser();
+    analyser.fftSize=2048;
+    analyser.smoothingTimeConstant=0.8;
+    source.connect(analyser);
+    dataArray=new Uint8Array(analyser.fftSize);
+
+    createScale();
+    updateMeter();
+}
+
+init();
+</script>
+
+</body>
+</html>
