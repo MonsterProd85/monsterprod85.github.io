@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="content/responsive.css" />
   <link rel="stylesheet" href="content/keyframes.css" />
   <link rel="stylesheet" href="content/fonts/fonts.css" />
+  <link rel="stylesheet" href="scripts/annonces/annonces.css" />
 
   <!-- google font links -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,11 +32,29 @@
   <script src="https://kit.fontawesome.com/83722c7395.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
+ 
+
+
   <div class="resolution-warning-container">
     <img src="content/logo.png" alt="Monster Prod Logo" class="logo" />
     <div class="resolution-warning">
       <p>Hmm, il semble que votre écran n'atteigne pas la résolution minimale pour cette page. Vous pouvez continuer quand même, mais nous vous recommandons de passer à un appareil plus grand.</p>
       <button onclick="document.querySelector('.resolution-warning-container').style.display='none'">Continuer quand même</button>
+    </div>
+  </div>
+
+  <div id="announcement-modal" class="announcement-overlay" style="display: none;">
+   <div class="announcement-box">
+     <button id="close-announcement" class="announcement-close" aria-label="Fermer">&times;</button>
+     <div class="announcement-content">
+      <img id="announcement-img" src="" alt="Annonce" class="announcement-picture" />
+        <div class="announcement-text">
+         <h2 id="announcement-title"></h2>
+          <p id="announcement-desc"></p>
+         <div id="announcement-btn-container"></div>
+       </div>
+      </div>
     </div>
   </div>
 
@@ -184,6 +203,7 @@ Peu importe les défis, nous donnons toujours le meilleur de nous-mêmes pour of
   </footer>
 
   <script src="script.js"></script>
+  <script src="/scripts/annonces/annonces.js"></script>
 
 </body>
 </html>

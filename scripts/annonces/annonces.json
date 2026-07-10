@@ -1,0 +1,27 @@
+[
+  {
+    "_NOTE_DOCUMENTATION": "=== GUIDE D'UTILISATION DU FICHIER ANNONCES ===",
+    "_title": "Le titre principal affiché en gras (Ex: 'Nouvelle Saison 2026 !').",
+    "_description": "Le texte de l'annonce. Garder court pour l'affichage mobile.",
+    "_picture": "Chemin local vers l'image (Ex: 'content/about.avif' ou 'content/logo.png').",
+    "_button": "OPTIONNEL. Supprimer tout le bloc 'button' si aucun bouton n'est nécessaire.",
+    "_button_fields": {
+      "text": "Texte écrit dans le bouton (Ex: 'Nous contacter').",
+      "link": "Lien de redirection. Peut être une ancre (#services) ou un site externe."
+    }
+  },
+  {
+    "title": "LOTO 2026",
+    "description": "Préparez vous pour notre loto annuel ! Venez participer à un loto XXL organisé par la junior association Made In Cambodge et sonorisé par Monster Prod! Tous les fonds récoltés seront reversés à Made In Cambodge, qui œuvre pour favoriser l'accès à l'éducation des enfants dans le monde.",
+    "picture": "content/loto_affiche.jpg",
+    "button": {
+      "text": "En savoir plus",
+      "link": "https://agenda-loto.net/evenement/1009821/20260822"
+    }
+  },
+  {
+    "title": "Alerte Recrutement",
+    "description": "Tu as entre 14 et 18 ans et tu es passionné par la technique ou la vidéo ? Rejoins la junior association !",
+    "picture": "content/logo.png"
+  }
+]
