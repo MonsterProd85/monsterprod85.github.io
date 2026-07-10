@@ -18,7 +18,6 @@ async function loadAnnouncement() {
 
       const dismissedAdTitle = localStorage.getItem("dismissedAnnouncementTitle");
       if (dismissedAdTitle === currentAd.title) {
-        console.log("Annonce déjà consultée et fermée par l'utilisateur.");
         return; 
       }
 
@@ -27,16 +26,15 @@ async function loadAnnouncement() {
       imgEl.src = currentAd.picture;
       
       btnContainer.innerHTML = ""; 
+      
+      // 1. Bouton principal d'action
       if (currentAd.button && currentAd.button.text && currentAd.button.link) {
         const adButton = document.createElement("a");
         adButton.href = currentAd.button.link;
-        
-        // Sécurité : Ouvre dans un nouvel onglet UNIQUEMENT si ce n'est pas une ancre locale (ex: #contact)
         if (!currentAd.button.link.startsWith('#')) {
           adButton.target = "_blank";
-          adButton.rel = "noopener noreferrer"; // Bonne pratique de sécurité pour les liens externes
+          adButton.rel = "noopener noreferrer";
         }
-        
         adButton.className = "btn-primary";
         adButton.innerHTML = `${currentAd.button.text} <i class="fa-solid fa-arrow-right"></i>`;
         
@@ -48,8 +46,63 @@ async function loadAnnouncement() {
         btnContainer.appendChild(adButton);
       }
       
-      modal.style.display = "flex";
+      // 2. BLOC CALENDRIER (Optionnel si présent dans le JSON)
+      if (currentAd.calendar) {
+        const cal = currentAd.calendar;
+
+        // Création du conteneur des liens de calendrier
+        const calContainer = document.createElement("div");
+        calContainer.className = "calendar-options";
+        calContainer.innerHTML = `<span class="cal-trigger"><i class="fa-solid fa-calendar-plus"></i> Ajouter à mon calendrier</span>`;
+        
+        // Sous-menu contenant les deux choix d'importation importants
+        const calMenu = document.createElement("div");
+        calMenu.className = "calendar-menu";
+
+        // Lien 1 : Google Calendar
+        const googleLink = document.createElement("a");
+        googleLink.target = "_blank";
+        googleLink.rel = "noopener noreferrer";
+        googleLink.textContent = "Google Calendar";
+        googleLink.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cal.title)}&dates=${cal.start}/${cal.end}&details=${encodeURIComponent(cal.description)}&location=${encodeURIComponent(cal.location)}`;
+
+        // Lien 2 : Fichier ICS (Apple / Outlook)
+        const icsLink = document.createElement("a");
+        icsLink.textContent = "Apple / Outlook (.ics)";
+        icsLink.href = "#";
+        icsLink.addEventListener("click", (e) => {
+          e.preventDefault();
+          // Génération du contenu de fichier de l'événement à la volée
+          const icsContent = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "BEGIN:VEVENT",
+            `URL:${window.location.href}`,
+            `DTSTART:${cal.start}`,
+            `DTEND:${cal.end}`,
+            `SUMMARY:${cal.title}`,
+            `DESCRIPTION:${cal.description}`,
+            `LOCATION:${cal.location}`,
+            "END:VEVENT",
+            "END:VCALENDAR"
+          ].join("\n");
+          
+          const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8;" });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.setAttribute("download", "evenement.ics");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+        calMenu.appendChild(googleLink);
+        calMenu.appendChild(icsLink);
+        calContainer.appendChild(calMenu);
+        btnContainer.appendChild(calContainer);
+      }
       
+      modal.style.display = "flex";
       setupCloseEvents(currentAd.title);
     }
   } catch (error) {

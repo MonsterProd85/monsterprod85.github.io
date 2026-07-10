@@ -1,13 +1,12 @@
 [
   {
     "_NOTE_DOCUMENTATION": "=== GUIDE D'UTILISATION DU FICHIER ANNONCES ===",
-    "_title": "Le titre principal affiché en gras (Ex: 'Nouvelle Saison 2026 !').",
-    "_description": "Le texte de l'annonce. Garder court pour l'affichage mobile.",
-    "_picture": "Chemin local vers l'image (Ex: 'content/about.avif' ou 'content/logo.png').",
-    "_button": "OPTIONNEL. Supprimer tout le bloc 'button' si aucun bouton n'est nécessaire.",
-    "_button_fields": {
-      "text": "Texte écrit dans le bouton (Ex: 'Nous contacter').",
-      "link": "Lien de redirection. Peut être une ancre (#services) ou un site externe."
+    "_calendar_fields": {
+      "title": "Titre exact de l'événement dans l'agenda",
+      "description": "Texte de description à l'intérieur de l'événement",
+      "location": "Adresse physique ou lien",
+      "start": "Date/Heure de début au format YYYYMMDDTHHMMSS (Ex: 20261025T140000 pour le 25 Oct 2026 à 14h00)",
+      "end": "Date/Heure de fin au format YYYYMMDDTHHMMSS"
     }
   },
   {
@@ -17,11 +16,13 @@
     "button": {
       "text": "En savoir plus",
       "link": "https://agenda-loto.net/evenement/1009821/20260822"
+    },
+    "calendar": {
+      "title": "Grand Loto Annuel - Monster Prod",
+      "description": "Ne manquez pas notre loto annuel ! Rendez-vous sur place.",
+      "location": "Complexe culturel Le Havre d'Olonne, 85340 Les Sables-d'Olonne",
+      "start": "20260822T190000Z",
+      "end": "20260822T223000Z"
     }
-  },
-  {
-    "title": "Alerte Recrutement",
-    "description": "Tu as entre 14 et 18 ans et tu es passionné par la technique ou la vidéo ? Rejoins la junior association !",
-    "picture": "content/logo.png"
   }
 ]
