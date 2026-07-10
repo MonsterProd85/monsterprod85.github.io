@@ -4,7 +4,7 @@
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 10000; /* Priorité absolue sur le reste du site */
+  z-index: 10000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,6 +63,8 @@
 .announcement-text {
   padding: 25px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 
 .announcement-text h2 {
@@ -78,6 +80,13 @@
   color: #ccc;
   line-height: 1.6;
   margin-bottom: 20px;
+}
+
+#announcement-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: auto;
 }
 
 .announcement-box .btn-primary {
@@ -101,7 +110,6 @@
   transform: translateY(-1px);
 }
 
-
 .announcement-box .fa-arrow-right {
   transition: transform 0.3s ease !important;
   margin-left: 0 !important;
@@ -113,7 +121,50 @@
   animation: none !important;
 }
 
+.calendar-container {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
 
+.cal-link-discret {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: #aaa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.cal-link-discret:hover {
+  color: #007bff;
+}
+
+.cal-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.cal-link-choice {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cal-link-choice:hover {
+  color: #0056b3;
+}
+
+/* --- Version Responsive (Tablettes et PC) --- */
 @media (min-width: 550px) {
   .announcement-content {
     flex-direction: row;
@@ -131,65 +182,4 @@
     flex-direction: column;
     justify-content: center;
   }
-}
-
-/* --- Options d'ajout au calendrier --- */
-.calendar-options {
-  margin-top: 15px;
-  position: relative;
-  display: inline-block;
-  text-align: center;
-  width: 100%;
-}
-
-.cal-trigger {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.9rem;
-  color: #aaa;
-  cursor: pointer;
-  text-decoration: underline;
-  transition: color 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.cal-trigger:hover {
-  color: #007bff; /* Devient bleu au survol */
-}
-
-/* Le menu caché par défaut */
-.calendar-menu {
-  display: none;
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #222;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 5px 0;
-  width: 180px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  z-index: 100;
-  margin-bottom: 5px;
-}
-
-.calendar-options:hover .calendar-menu {
-  display: block; /* S'affiche au survol */
-}
-
-.calendar-menu a {
-  display: block;
-  padding: 8px 15px;
-  color: #fff;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.85rem;
-  text-decoration: none;
-  text-align: left;
-  transition: background 0.2s ease;
-}
-
-.calendar-menu a:hover {
-  background: #007bff;
 }

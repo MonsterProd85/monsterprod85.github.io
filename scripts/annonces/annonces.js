@@ -27,14 +27,15 @@ async function loadAnnouncement() {
       
       btnContainer.innerHTML = ""; 
       
-      // 1. Bouton principal d'action
       if (currentAd.button && currentAd.button.text && currentAd.button.link) {
         const adButton = document.createElement("a");
         adButton.href = currentAd.button.link;
+        
         if (!currentAd.button.link.startsWith('#')) {
           adButton.target = "_blank";
           adButton.rel = "noopener noreferrer";
         }
+        
         adButton.className = "btn-primary";
         adButton.innerHTML = `${currentAd.button.text} <i class="fa-solid fa-arrow-right"></i>`;
         
@@ -46,33 +47,19 @@ async function loadAnnouncement() {
         btnContainer.appendChild(adButton);
       }
       
-      // 2. BLOC CALENDRIER (Optionnel si présent dans le JSON)
       if (currentAd.calendar) {
         const cal = currentAd.calendar;
-
-        // Création du conteneur des liens de calendrier
         const calContainer = document.createElement("div");
-        calContainer.className = "calendar-options";
-        calContainer.innerHTML = `<span class="cal-trigger"><i class="fa-solid fa-calendar-plus"></i> Ajouter à mon calendrier</span>`;
+        calContainer.className = "calendar-container";
         
-        // Sous-menu contenant les deux choix d'importation importants
-        const calMenu = document.createElement("div");
-        calMenu.className = "calendar-menu";
+        const isApple = /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent) || 
+                        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+        const isChromeOrAndroid = /Chrome|Android/i.test(navigator.userAgent);
 
-        // Lien 1 : Google Calendar
-        const googleLink = document.createElement("a");
-        googleLink.target = "_blank";
-        googleLink.rel = "noopener noreferrer";
-        googleLink.textContent = "Google Calendar";
-        googleLink.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cal.title)}&dates=${cal.start}/${cal.end}&details=${encodeURIComponent(cal.description)}&location=${encodeURIComponent(cal.location)}`;
-
-        // Lien 2 : Fichier ICS (Apple / Outlook)
-        const icsLink = document.createElement("a");
-        icsLink.textContent = "Apple / Outlook (.ics)";
-        icsLink.href = "#";
-        icsLink.addEventListener("click", (e) => {
+        const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(cal.title)}&dates=${cal.start}/${cal.end}&details=${encodeURIComponent(cal.description)}&location=${encodeURIComponent(cal.location)}`;
+        
+        const triggerIcsDownload = (e) => {
           e.preventDefault();
-          // Génération du contenu de fichier de l'événement à la volée
           const icsContent = [
             "BEGIN:VCALENDAR",
             "VERSION:2.0",
@@ -94,11 +81,42 @@ async function loadAnnouncement() {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-        });
+        };
 
-        calMenu.appendChild(googleLink);
-        calMenu.appendChild(icsLink);
-        calContainer.appendChild(calMenu);
+        if (isApple) {
+          const appleBtn = document.createElement("a");
+          appleBtn.href = "#";
+          appleBtn.className = "cal-link-discret";
+          appleBtn.innerHTML = `<i class="fa-solid fa-calendar-plus"></i> Ajouter à mon calendrier Apple`;
+          appleBtn.addEventListener("click", triggerIcsDownload);
+          calContainer.appendChild(appleBtn);
+        } else if (isChromeOrAndroid) {
+          const googleBtn = document.createElement("a");
+          googleBtn.href = googleUrl;
+          googleBtn.target = "_blank";
+          googleBtn.rel = "noopener noreferrer";
+          googleBtn.className = "cal-link-discret";
+          googleBtn.innerHTML = `<i class="fa-solid fa-calendar-plus"></i> Ajouter à Google Calendar`;
+          calContainer.appendChild(googleBtn);
+        } else {
+          calContainer.innerHTML = `<span class="cal-label"><i class="fa-solid fa-calendar-plus"></i> Ajouter à l'agenda :</span>`;
+          
+          const gLink = document.createElement("a");
+          gLink.href = googleUrl;
+          gLink.target = "_blank";
+          gLink.className = "cal-link-choice";
+          gLink.textContent = "Google";
+          
+          const aLink = document.createElement("a");
+          aLink.href = "#";
+          aLink.className = "cal-link-choice";
+          aLink.textContent = "Apple / Outlook";
+          aLink.addEventListener("click", triggerIcsDownload);
+          
+          calContainer.appendChild(gLink);
+          calContainer.appendChild(aLink);
+        }
+
         btnContainer.appendChild(calContainer);
       }
       
