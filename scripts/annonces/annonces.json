@@ -1,28 +1,18 @@
 [
   {
-    "_NOTE_DOCUMENTATION": "=== GUIDE D'UTILISATION DU FICHIER ANNONCES ===",
-    "_calendar_fields": {
-      "title": "Titre exact de l'événement dans l'agenda",
-      "description": "Texte de description à l'intérieur de l'événement",
-      "location": "Adresse physique ou lien",
-      "start": "Date/Heure de début au format YYYYMMDDTHHMMSS (Ex: 20261025T140000 pour le 25 Oct 2026 à 14h00)",
-      "end": "Date/Heure de fin au format YYYYMMDDTHHMMSS"
-    }
-  },
-  {
-    "title": "LOTO 2026",
-    "description": "Préparez vous pour notre loto annuel ! Venez participer à un loto XXL organisé par la junior association Made In Cambodge et sonorisé par Monster Prod ! Tous les fonds récoltés seront reversés à Made In Cambodge, qui œuvre pour favoriser l'accès à l'éducation des enfants dans le monde.",
-    "picture": "content/loto_affiche.jpg",
+    "title": "",
+    "description": "",
+    "picture": "",
     "button": {
-      "text": "En savoir plus",
-      "link": "/loto"
+      "text": "",
+      "link": ""
     },
     "calendar": {
-      "title": "LOTO XXL - Made In Cambodge & Monster Prod",
-      "description": "Préparez vous pour notre loto annuel ! Venez participer à un loto XXL organisé par la junior association Made In Cambodge et sonorisé par Monster Prod ! Tous les fonds récoltés seront reversés à Made In Cambodge, qui œuvre pour favoriser l'accès à l'éducation des enfants dans le monde.",
-      "location": "Complexe culturel Le Havre d'Olonne, 85340 Les Sables-d'Olonne",
-      "start": "20260822T190000Z",
-      "end": "20260822T223000Z"
+      "title": "",
+      "description": "",
+      "location": "",
+      "start": "",
+      "end": ""
     }
   }
 ]
