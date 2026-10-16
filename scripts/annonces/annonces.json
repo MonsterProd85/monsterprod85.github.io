@@ -1,11 +1,11 @@
 [
   {
-    "title": "",
-    "description": "",
-    "picture": "",
+    "title": "À la découverte des fermes locales !",
+    "description": "Découvrez notre film réalisé durant l’été 2026 à la rencontre des producteurs locaux, dans le cadre du Projet Alimentaire Territorial des Sables d’Olonne.",
+    "picture": "/content/affiche-rdv-climat.png",
     "button": {
-      "text": "",
-      "link": ""
+      "text": "Voir la vidéo",
+      "link": "https://youtu.be/C9kYJc1Vopo"
     },
     "calendar": {
       "title": "",
