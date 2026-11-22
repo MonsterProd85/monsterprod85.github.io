@@ -186,3 +186,16 @@ if ('ontouchstart' in window) {
     }
   } catch(e) {}
 }
+
+/* hero video: fade in once it is actually playing */
+const bgVideo = document.getElementById('bg-video');
+function showBgVideo() {
+  bgVideo.classList.add('is-ready');
+}
+if (bgVideo) {
+  if (!bgVideo.paused && bgVideo.readyState >= 3) {
+    showBgVideo();
+  } else {
+    bgVideo.addEventListener('playing', showBgVideo, { once: true });
+  }
+}
