@@ -1,4 +1,4 @@
-// Shared behaviour for the secondary pages (legal, crédits, 404):
+// Shared behaviour for the secondary pages (legal, credits, 404):
 // the same floating header and footer year as the home page.
 const header = document.querySelector('.header');
 

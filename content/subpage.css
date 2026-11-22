@@ -1,4 +1,4 @@
-/* Shared styles for the secondary pages (legal, crédits, 404).
+/* Shared styles for the secondary pages (legal, credits, 404).
    They load the main styles.css first, so the header, footer, buttons,
    fonts and colours are exactly the ones of the home page; this file only
    adds the page layouts that the home page does not have. */
