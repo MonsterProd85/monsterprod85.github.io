@@ -97,7 +97,7 @@ mainTitleElement.addEventListener('transitionend', e => {
 
 // animation for cycling through taglines
 const cycleTaglines = () => {
-  let currentIndex = 0;
+  let currentIndex = randomIndex;
 
   // keyframe animation
   const keyframes = `
