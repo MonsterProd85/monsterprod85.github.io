@@ -154,7 +154,7 @@ body.subpage {
   min-height: 100vh;
 }
 
-.error-code {
+.hero-content h1.error-code {
   font-family: 'Duplet', sans-serif;
   font-size: clamp(5rem, 14vw, 9rem);
   line-height: 1;
@@ -187,5 +187,12 @@ body.subpage {
   }
   .page-content h2.group-title {
     font-size: 1.5rem !important;
+  }
+  .hero-content h1.error-code {
+    font-size: 6rem;
+  }
+  .hero-content .hero-buttons .btn-primary {
+    width: 100%;
+    text-align: center;
   }
 }
