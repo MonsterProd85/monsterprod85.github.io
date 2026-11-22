@@ -9,6 +9,7 @@ Toute autre utilisation n’est pas autorisée sans notre accord préalable.
 ## 🚫 Copie
 La reproduction totale ou partielle de ce site est strictement interdite.  
 Si vous souhaitez l’utiliser ou vous en inspirer, merci de nous contacter au préalable et d’expliquer vos motivations.  
+Voir le fichier [LICENSE](LICENSE).  
 
 ## 🙌 Crédits
 - Développement & intégration : [@heyheyyt](https://github.com/heyheyyt) & [@antoinenz](https://github.com/antoinenz)  
