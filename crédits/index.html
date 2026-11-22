@@ -1,88 +1,99 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- meta tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Crédits du site Monster Prod : développement, conception, ressources et outils." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Monster Prod" />
+  <meta name="theme-color" content="#000000" />
 
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Crédits | Monster Prod</title>
+  <!-- html headers -->
+  <title>Crédits | Monster Prod</title>
+  <link rel="icon" href="/content/favicon.png" type="image/x-icon" />
 
-<link rel="icon" href="../content/favicon.png" type="image/x-icon" />
+  <!-- css links: same stylesheets as the home page, then the secondary page layouts -->
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/content/responsive.css" />
+  <link rel="stylesheet" href="/content/keyframes.css" />
+  <link rel="stylesheet" href="/content/fonts/fonts.css" />
+  <link rel="stylesheet" href="/content/subpage.css" />
 
-<link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <!-- google font links -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Duplet:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
-<link rel="stylesheet" href="styles.css" />
-
+  <!-- scripts -->
+  <script src="https://kit.fontawesome.com/83722c7395.js" crossorigin="anonymous"></script>
 </head>
+<body class="subpage">
 
-<body>
+  <header class="header">
+    <img src="/content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='/'"/>
+    <nav>
+      <ul>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">Nous</a></li>
+        <li><a href="/#contact" class="lastlink">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header class="header">
-  <img src="../content/logo.png" alt="Monster Prod Logo" onclick="window.location.href='../'"/>
-  <nav>
-    <ul>
-      <li><a href="../">Accueil</a></li>
-      <li><a href="../#services">Services</a></li>
-      <li><a href="../#about">Nous</a></li>
-      <li><a href="../#contact">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-<main class="legal-page">
-
-  <h1>Crédits</h1>
-  <p class="update-date">Dernière mise à jour : 11 juin 2025</p>
-
-  <section>
-
-    <h2>Développement & Conception</h2>
-
-    <div class="credit-block">
-      <p><strong>Conception UI/UX & Développement Front-end :</strong></p>
-      <p>Chef du développement : Alix Bachelier</p>
-      <p>Développeurs principaux : Alix Bachelier & Antoine Rossi</p>
-      <p>Technologies : HTML5, CSS3, JavaScript</p>
+  <main>
+    <div class="page-hero">
+      <h1 class="section-title">Crédits</h1>
+      <p>Dernière mise à jour : 11 juin 2025</p>
     </div>
 
-    <div class="credit-block">
-      <p><strong>Intégration et Optimisation :</strong></p>
-      <p>Théo Chauvet, Antoine Rossi</p>
+    <div class="page-content">
+
+      <h2 class="group-title">Développement &amp; Conception</h2>
+      <div class="credit-grid">
+        <article class="panel">
+          <h3>Conception UI/UX &amp; Développement Front-end</h3>
+          <p>Chef du développement : Alix Bachelier</p>
+          <p>Développeurs principaux : Alix Bachelier &amp; Antoine Rossi</p>
+          <p>Technologies : HTML5, CSS3, JavaScript</p>
+        </article>
+        <article class="panel">
+          <h3>Intégration et Optimisation</h3>
+          <p>Théo Chauvet, Antoine Rossi</p>
+        </article>
+      </div>
+
+      <h2 class="group-title">Ressources &amp; Contributions</h2>
+      <div class="credit-grid">
+        <article class="panel">
+          <h3>Icônes</h3>
+          <p>Font Awesome</p>
+        </article>
+        <article class="panel">
+          <h3>Polices</h3>
+          <p>Montserrat via Google Fonts</p>
+          <p>Duplet via Befonts</p>
+        </article>
+        <article class="panel">
+          <h3>Outils</h3>
+          <p>GitHub</p>
+          <p>Google reCAPTCHA</p>
+        </article>
+      </div>
+
     </div>
+  </main>
 
-    <h2>Ressources & Contributions</h2>
-
-    <div class="credit-block">
-      <p><strong>Icônes :</strong></p>
-      <p>Font Awesome</p>
+  <footer class="footer">
+    <div class="footer-nav">
+      <a href="/legal/">Politique de Confidentialité</a> •
+      <a href="/crédits/">Crédits</a> •
+      <a href="https://github.com/MonsterProd85/" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
+    <p>© Monster Prod <span id="year"></span></p>
+  </footer>
 
-    <div class="credit-block">
-      <p><strong>Polices :</strong></p>
-      <p>Montserrat via Google Fonts</p>
-      <p>Duplet via Befonts</p>
-    </div>
-
-    <div class="credit-block">
-      <p><strong>Outils :</strong></p>
-      <p>GitHub</p>
-      <p>Google reCAPTCHA</p>
-    </div>
-
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div>
-    <a href="../legal/">Politique de Confidentialité</a> •
-    <a href="../crédits/">Crédits</a>
-  </div>
-  <p>© Monster Prod <span id="year"></span></p>
-</footer>
-
-<script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script src="/scripts/subpage.js"></script>
 
 </body>
 </html>
