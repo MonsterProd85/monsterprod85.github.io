@@ -574,72 +574,102 @@ button {
   color: #fff;
 }
 
-/* Update 1: Ensure the list item is a block and handles its content */
-.contact-info ul li {
-  /* No special positioning is needed, let it be in normal flow */
-  /* If you had a rule like 'position: static' or 'position: relative', ensure it is correct */
-  margin-bottom: 10px; /* Add some space between items */
-}
-
-/* Update 2: Refine the address-container (now it contains all address info) */
 .contact-info ul li .address-container {
-  /* Set position relative IF you decide to keep the absolute positioning later,
-     but for the flow issue, let's keep it simple first. */
-  /* Remove position: relative for now if you only want it to push content */
-  display: block; 
-  cursor: pointer;
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 40;
 }
 
-/* Update 3: Style the hidden content (Opening Times) */
+/* opening times: floating tooltip, layered over the content below (no layout shift) */
 .opening-times {
-  /* Remove position: absolute to keep it in the flow! */
-  /* It will now push the elements below it when it expands. */
-  
-  /* Appearance */
-  background: #333; /* Dark background for contrast */
-  color: white; /* Light text */
-  border: 1px solid var(--color-primary, #007bff);
-  padding: 0 15px; /* Adjust padding to be vertical-only for max-height transition */
-  margin-top: 5px;
-  min-width: 100%; /* Take full width of the list item */
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  
-  /* Hiding mechanism & Transition */
-  max-height: 0;
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #222;
+  color: #fff;
+  border: 1px solid #007bff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+  cursor: default;
   opacity: 0;
-  visibility: hidden; 
-  overflow: hidden;
-  
-  /* Smooth transition effect */
-  /* Add padding transition to avoid content jump */
-  transition: max-height 0.5s ease-out, opacity 0.4s ease-out, padding 0.5s ease-out, visibility 0.4s; 
+  visibility: hidden;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
 }
 
-/* Update 4: Style the table content within the times block */
-.opening-times h4,
+/* little arrow pointing at the address */
+.opening-times::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 28px;
+  width: 12px;
+  height: 12px;
+  background: #222;
+  border-left: 1px solid #007bff;
+  border-top: 1px solid #007bff;
+  transform: rotate(45deg);
+}
+
+/* invisible bridge over the gap so the tooltip stays open while the pointer moves onto it */
+.opening-times::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -14px;
+  height: 14px;
+}
+
+.opening-times h4 {
+  font-family: 'Duplet', sans-serif;
+  margin-bottom: 8px;
+}
+
 .opening-times table {
-    /* Set margin/padding for the content to ensure it fits in the max-height */
-    margin-bottom: 8px;
-    margin-top: 8px;
+  border-collapse: collapse;
+  margin-bottom: 10px;
 }
 
-/* Update 5: Hover effect: Reveal the content and padding */
+.opening-times td {
+  padding: 2px 0;
+}
+
+.opening-times td:first-child {
+  padding-right: 24px;
+  color: #ccc;
+}
+
+.opening-times small {
+  display: block;
+  color: #9b9b9b;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+
+.opening-times .opening-times-hint {
+  margin-top: 8px;
+  color: #5a80fb;
+}
+
 .address-container:hover .opening-times {
-  /* Expand the height to reveal content (300px must be more than enough) */
-  max-height: 300px; 
   opacity: 1;
   visibility: visible;
-  padding-top: 10px;    /* Restore vertical padding on hover */
-  padding-bottom: 10px; /* Restore vertical padding on hover */
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* Optional: Add a subtle text hover effect to the address itself */
-/* Ensure the address link itself is targeted correctly */
-.address-container > a:hover {
-  color: var(--color-primary, #007bff); 
+/* keyboard users: kept as a separate rule so the touch-screen hover cleanup in script.js leaves it alone */
+.address-container:focus-within .opening-times {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
-
 
 /* resolution warning */
 .resolution-warning-container {

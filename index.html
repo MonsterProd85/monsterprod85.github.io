@@ -155,10 +155,10 @@ Peu importe les défis, nous donnons toujours le meilleur de nous-mêmes pour of
         <ul>
             <li>
   <div class="address-container">
-    <a href="https://www.google.com/maps/place/4+TER+Rue+des+Sables,+85340+Les+Sables-d'Olonne/" target="_blank" rel="noopener" title="Ouvrir avec Google Maps">
+    <a href="https://www.google.com/maps/place/4+TER+Rue+des+Sables,+85340+Les+Sables-d'Olonne/" target="_blank" rel="noopener" aria-label="4 TER Rue des Sables, 85340 Les Sables-d'Olonne (ouvrir avec Google Maps)" aria-describedby="opening-times">
       <i class="fas fa-map-marker-alt"></i> <span class="address-text">4 TER Rue des Sables, 85340 Les Sables-d'Olonne</span>
     </a>
-            <div class="opening-times">
+            <div class="opening-times" id="opening-times" role="tooltip">
                <h4>Horaires d'Ouverture*</h4>
                <table>
                 <tr><td>Lun. - Mar.</td><td>Fermé</td></tr>
@@ -167,7 +167,8 @@ Peu importe les défis, nous donnons toujours le meilleur de nous-mêmes pour of
                 <tr><td>Sam.</td><td>15h00 - 17h00</td></tr>
                 <tr><td>Dim.</td><td>Fermé</td></tr>
               </table>
-              <tr><small style="color: #9b9b9b;">*Les horaires sont sujets à changer, contactez-nous pour prendre un RDV.</small></tr>
+              <small>*Les horaires sont sujets à changer, contactez-nous pour prendre un RDV.</small>
+              <small class="opening-times-hint"><i class="fa-solid fa-map-location-dot"></i> Cliquez sur l'adresse pour l'ouvrir dans Google Maps</small>
             </div>
           </div>
         </li>
