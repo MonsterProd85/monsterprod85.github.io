@@ -520,19 +520,23 @@ button {
 }
 
 .contact-form .form-note {
-  margin-top: 12px;
-  font-size: 0.85em;
-  color: #9b9b9b;
-  line-height: 1.5;
+  margin-top: 10px;
+  font-size: 0.72rem !important; /* beats the mobile "p { 0.9rem !important }" rule */
+  color: #666;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .contact-form .form-note a {
-  color: #5a80fb;
-  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.3s ease;
 }
 
 .contact-form .form-note a:hover {
-  text-decoration: underline;
+  color: #aaa;
 }
 
 .fa-paper-plane {
