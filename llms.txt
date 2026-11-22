@@ -1,0 +1,25 @@
+# Monster Prod
+
+> Monster Prod est une junior association des Sables-d'Olonne (Vendée, France), tenue par des jeunes de 14 à 18 ans, spécialisée en sonorisation, éclairage événementiel et captation vidéo pour les événements locaux.
+
+## Services
+
+- Sonorisation : solutions audio professionnelles pour événements
+- Vidéo : captation, diffusion et montage
+- Lumières : éclairage, spectacles et programmation DMX
+
+## Contact
+
+- E-mail : contact@monsterprod.fr
+- Adresse : 4 ter Rue des Sables, 85340 Les Sables-d'Olonne
+- Horaires (sujets à changer, sur rendez-vous) : mercredi 14h30-17h00, samedi 15h00-17h00
+- Formulaire de contact : https://monsterprod.fr/#contact
+- Instagram : https://www.instagram.com/monsterprod.85/
+- Facebook : https://www.facebook.com/monsterprod85
+
+## Pages
+
+- [Accueil](https://monsterprod.fr/): services, présentation de l'équipe et formulaire de contact
+- [Le Trésor de Maracaïbo](https://monsterprod.fr/maracaibo/): escape game sur le pirate vendéen Neau l'Olonnois
+- [Politique de confidentialité](https://monsterprod.fr/legal/): données collectées et droits RGPD
+- [Crédits](https://monsterprod.fr/credits/): équipe de développement et ressources utilisées
