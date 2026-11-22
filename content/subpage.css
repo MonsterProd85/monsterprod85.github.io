@@ -62,7 +62,8 @@ body.subpage {
   box-shadow: #111 0px 0px 10px;
 }
 
-.panel h2 {
+.panel h2,
+.page-content > .panel > h3 {
   font-family: 'Duplet', sans-serif;
   font-size: 1.6rem;
   margin-bottom: 1rem;
@@ -122,6 +123,7 @@ body.subpage {
 /* credits: groups of small cards, like the services grid */
 .page-content h2.group-title {
   font-family: 'Duplet', sans-serif;
+  scroll-margin-top: 100px;
   font-size: 2rem;
   margin-top: 1.5rem;
 }
