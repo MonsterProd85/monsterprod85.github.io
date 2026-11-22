@@ -21,5 +21,6 @@
 
 - [Accueil](https://monsterprod.fr/): services, présentation de l'équipe et formulaire de contact
 - [Le Trésor de Maracaïbo](https://monsterprod.fr/maracaibo/): escape game sur le pirate vendéen Neau l'Olonnois
+- [Mentions légales](https://monsterprod.fr/mentions-legales/): éditeur, responsable de la publication et hébergeur
 - [Politique de confidentialité](https://monsterprod.fr/legal/): données collectées et droits RGPD
 - [Crédits](https://monsterprod.fr/credits/): équipe de développement et ressources utilisées
