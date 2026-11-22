@@ -506,6 +506,22 @@ button {
   transform: scale(0.99);
 }
 
+.contact-form .form-note {
+  margin-top: 12px;
+  font-size: 0.85em;
+  color: #9b9b9b;
+  line-height: 1.5;
+}
+
+.contact-form .form-note a {
+  color: #5a80fb;
+  text-decoration: none;
+}
+
+.contact-form .form-note a:hover {
+  text-decoration: underline;
+}
+
 .fa-paper-plane {
   margin-right: 10px;
 }
