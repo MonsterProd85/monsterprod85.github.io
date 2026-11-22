@@ -77,7 +77,7 @@ const taglines = [
   "Faites briller vos évènements",
   "Son, lumière, action !",
   "Des événements inoubliables",
-  "Créons ensembles des moments magiques"
+  "Créons ensemble des moments magiques"
 ];
 const mainTitleElement = document.getElementById('mainTitle');
 const randomIndex = Math.floor(Math.random() * taglines.length);
