@@ -323,7 +323,9 @@ button {
 /* Footer */
 .footer {
   text-align: center;
-  outline: rgba(255, 255, 255, 0.501) 3px dashed;
+  /* dashed edge on the top and sides only: no bottom line shows when the page bounces */
+  border: 3px dashed rgba(255, 255, 255, 0.501);
+  border-bottom: none;
   padding: 1rem 8rem;
   margin: 0 auto;
   max-width: fit-content;
