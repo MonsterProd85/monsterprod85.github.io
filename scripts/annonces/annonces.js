@@ -41,6 +41,25 @@ async function loadAnnouncement() {
     const currentAd = data[0];
     if (!currentAd) return;
 
+    const hasContent = [
+      currentAd.title,
+      currentAd.description,
+      currentAd.picture,
+      currentAd.button?.text,
+      currentAd.button?.link,
+      currentAd.calendar?.title,
+      currentAd.calendar?.description,
+      currentAd.calendar?.location,
+      currentAd.calendar?.start,
+      currentAd.calendar?.end
+    ].some(value => String(value ?? "").trim() !== "");
+
+    // Si tout est vide, ne rien afficher
+    if (!hasContent) {
+      modal.style.display = "none";
+      return;
+    }
+
     if (isDismissed(currentAd.title)) return;
 
     // Affichage du contenu
