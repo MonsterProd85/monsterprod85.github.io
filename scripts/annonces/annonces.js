@@ -28,7 +28,8 @@ async function loadAnnouncement() {
     if (dismissedAdTitle === currentAd.title) return;
 
     // Affichage du contenu
-    titleEl.textContent = currentAd.title || "";
+    // Espace insécable avant ! ? : ; pour éviter un signe seul à la ligne
+    titleEl.textContent = (currentAd.title || "").replace(/ ([!?:;])/g, "\u00a0$1");
     descEl.textContent = currentAd.description || "";
 
     // Afficher l'image uniquement si elle existe
