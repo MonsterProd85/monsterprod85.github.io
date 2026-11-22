@@ -1,3 +1,6 @@
+// visitors who asked their system for less motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const content = document.querySelectorAll('.card, .about-text, .about-image');
 function revealOnScroll() {
   content.forEach(el => {
@@ -136,7 +139,8 @@ const cycleTaglines = () => {
   setInterval(updateTagline, 7000);
 };
 
-document.addEventListener('DOMContentLoaded', cycleTaglines);
+// with reduced motion the random tagline stays put instead of cycling
+if (!prefersReducedMotion) document.addEventListener('DOMContentLoaded', cycleTaglines);
 
 // scale about-image when hovering about button
 document.querySelector('.btn-secondary').addEventListener('mouseenter', function() {
@@ -187,13 +191,23 @@ if ('ontouchstart' in window) {
   } catch(e) {}
 }
 
-/* hero video: fade in once it is actually playing */
+/* hero video: fade in once it is actually playing.
+   With "reduce motion" on, it is not played: it fades in on its first frame and stays still. */
 const bgVideo = document.getElementById('bg-video');
 function showBgVideo() {
   bgVideo.classList.add('is-ready');
 }
 if (bgVideo) {
-  if (!bgVideo.paused && bgVideo.readyState >= 3) {
+  if (prefersReducedMotion) {
+    bgVideo.removeAttribute('autoplay');
+    bgVideo.pause();
+    bgVideo.addEventListener('play', () => bgVideo.pause());
+    if (bgVideo.readyState >= 2) {
+      showBgVideo();
+    } else {
+      bgVideo.addEventListener('loadeddata', showBgVideo, { once: true });
+    }
+  } else if (!bgVideo.paused && bgVideo.readyState >= 3) {
     showBgVideo();
   } else {
     bgVideo.addEventListener('playing', showBgVideo, { once: true });
