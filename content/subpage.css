@@ -1,0 +1,191 @@
+/* Shared styles for the secondary pages (legal, crédits, 404).
+   They load the main styles.css first, so the header, footer, buttons,
+   fonts and colours are exactly the ones of the home page; this file only
+   adds the page layouts that the home page does not have. */
+
+html, body {
+  height: auto;
+  min-height: 100%;
+}
+
+body.subpage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.subpage main {
+  flex: 1 0 auto;
+}
+
+/* page title band, same gradient as the bottom of the home hero */
+.page-hero {
+  padding: 150px 2rem 3rem;
+  text-align: center;
+  background: linear-gradient(to bottom, #111111, #1a1a1a 60%, #111111);
+}
+
+.page-hero .section-title {
+  font-family: 'Duplet', sans-serif;
+  margin-bottom: 1rem;
+  animation: fadeInFromBottom 0.5s ease-in-out;
+}
+
+.page-hero p {
+  color: #aaa;
+  font-size: 1rem;
+  animation: fadeInFromBottom 0.8s ease-in-out;
+}
+
+/* content column */
+.page-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: fadeInFromBottom 1s ease-in-out;
+}
+
+/* text panel: same surface as the home page service cards */
+.panel {
+  background: #222;
+  border-radius: 12px;
+  padding: 2rem;
+  outline: rgba(255, 255, 255, 0) 1px solid;
+  transition: outline-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.panel:hover {
+  outline-color: rgba(255, 255, 255, 0.318);
+  box-shadow: #111 0px 0px 10px;
+}
+
+.panel h2 {
+  font-family: 'Duplet', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.panel p,
+.panel li {
+  color: #ccc;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.panel p + p,
+.panel p + ul,
+.panel ul + p {
+  margin-top: 0.8rem;
+}
+
+.panel ul {
+  list-style: none;
+  padding: 0;
+}
+
+.panel li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.panel li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #5a80fb;
+}
+
+.panel strong {
+  color: #fff;
+}
+
+.panel a {
+  color: #5a80fb;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(90, 128, 251, 0.4);
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.panel a:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* credits: groups of small cards, like the services grid */
+.page-content h2.group-title {
+  font-family: 'Duplet', sans-serif;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+.credit-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.credit-grid .panel {
+  padding: 1.5rem;
+}
+
+.credit-grid .panel h3 {
+  font-size: 1rem;
+  color: #5a80fb;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
+}
+
+.credit-grid .panel p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* 404: reuses the home page hero (video + overlay) */
+.subpage .hero {
+  height: auto;
+  min-height: 100vh;
+}
+
+.error-code {
+  font-family: 'Duplet', sans-serif;
+  font-size: clamp(5rem, 14vw, 9rem);
+  line-height: 1;
+  margin-bottom: 1rem;
+  animation: fadeInFromBottom 0.5s ease-in-out;
+}
+
+.hero-content .hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* footer sits right under the content on these pages */
+.subpage .footer {
+  margin-top: 0;
+}
+
+@media (max-width: 1000px) {
+  .page-hero {
+    padding: 120px 1.5rem 2rem !important;
+  }
+  .page-content {
+    padding: 0.5rem 5vw 4rem;
+  }
+  .panel {
+    padding: 1.5rem;
+  }
+  .page-content h2.group-title {
+    font-size: 1.5rem !important;
+  }
+}
