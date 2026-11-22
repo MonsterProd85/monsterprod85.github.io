@@ -79,6 +79,22 @@ const randomIndex = Math.floor(Math.random() * taglines.length);
 const selectedTagline = taglines[randomIndex];
 mainTitleElement.textContent = `${selectedTagline}`;
 
+// swap the tagline text and animate the title height, so a tagline that wraps
+// onto two lines eases the text below down instead of making it jump
+function setTaglineSmoothly(text) {
+  const from = mainTitleElement.offsetHeight;
+  mainTitleElement.style.height = '';
+  mainTitleElement.textContent = text;
+  const to = mainTitleElement.offsetHeight;
+  if (from === to) return;
+  mainTitleElement.style.height = from + 'px';
+  mainTitleElement.offsetHeight; // apply the start height before transitioning
+  mainTitleElement.style.height = to + 'px';
+}
+mainTitleElement.addEventListener('transitionend', e => {
+  if (e.propertyName === 'height') mainTitleElement.style.height = '';
+});
+
 // animation for cycling through taglines
 const cycleTaglines = () => {
   let currentIndex = 0;
@@ -105,7 +121,7 @@ const cycleTaglines = () => {
     
     setTimeout(() => {
       currentIndex = (currentIndex + 1) % taglines.length;
-      mainTitleElement.textContent = taglines[currentIndex];
+      setTaglineSmoothly(taglines[currentIndex]);
       
       // fade in
       mainTitleElement.style.animation = 'fadeIn 1s forwards';
