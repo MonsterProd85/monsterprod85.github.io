@@ -24,7 +24,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 
 window.addEventListener('load', () => {
-  let lastKnownScrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  let lastKnownScrollPosition = currentScrollY();
   const scrollCheckIntervalMs = 100;
   if (typeof toggleHeaderClass === 'function') {
     toggleHeaderClass();
@@ -32,13 +32,13 @@ window.addEventListener('load', () => {
     console.error("toggleHeaderClass function is not defined by the time 'load' event fires or is not a function.");
   }
   function handleScrollChange() {
-    const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (currentScrollY !== lastKnownScrollPosition) {
+    const scrollY = currentScrollY();
+    if (scrollY !== lastKnownScrollPosition) {
       if (typeof toggleHeaderClass === 'function') {
         toggleHeaderClass();
         addAnimationToCardsOnScroll()
       }
-      lastKnownScrollPosition = currentScrollY;
+      lastKnownScrollPosition = scrollY;
     }
   }
   setInterval(handleScrollChange, scrollCheckIntervalMs);
@@ -49,15 +49,20 @@ window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
 const header = document.querySelector('.header');
+// the page scrolls inside <body>, not the window. Take the largest offset: a rubber-band
+// bounce past the bottom moves the window by a few pixels, and picking that up with ||
+// made the header jump back to its top-of-page style.
+function currentScrollY() {
+  return Math.max(window.scrollY || 0, document.documentElement.scrollTop || 0, document.body.scrollTop || 0);
+}
+
 function toggleHeaderClass() {
-  const scrollPosition = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+  const scrollPosition = currentScrollY();
   if (scrollPosition > 10) {
     header.classList.add('header-scrolled');
   } else {
     header.classList.remove('header-scrolled');
   }
-  console.log('scroll position', scrollPosition);
-  console.log('header class', header.classList);
 }
 
 function addAnimationToCardsOnScroll() {
