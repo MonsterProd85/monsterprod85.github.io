@@ -52,6 +52,15 @@ button {
   outline: rgba(255, 255, 255, 0) 0px solid;
   pointer-events: all;
 }
+.logo-link {
+  display: flex;
+  pointer-events: all;
+  border-radius: 20px 8px 8px 20px;
+}
+.logo-link:focus-visible {
+  outline: 2px solid #5a80fb;
+  outline-offset: 2px;
+}
 .header img:hover {
   padding: 8px 10px;
   background-color: rgba(0, 0, 0, 0.516);
