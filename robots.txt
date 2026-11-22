@@ -1,0 +1,7 @@
+# Monster Prod: https://monsterprod.fr
+# Every public page may be crawled. The members' tools (/outils/) and the old
+# redirect pages carry a noindex tag instead of a Disallow, so crawlers can see it.
+User-agent: *
+Allow: /
+
+Sitemap: https://monsterprod.fr/sitemap.xml
