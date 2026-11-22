@@ -5,6 +5,26 @@ const descEl = document.getElementById("announcement-desc");
 const imgEl = document.getElementById("announcement-img");
 const btnContainer = document.getElementById("announcement-btn-container");
 
+// Mémorise l'annonce fermée pour ne plus l'afficher (même après rechargement).
+// Une nouvelle annonce (autre titre) s'affichera de nouveau.
+const DISMISS_KEY = "dismissedAnnouncementTitle";
+
+function isDismissed(adTitle) {
+  try {
+    return localStorage.getItem(DISMISS_KEY) === adTitle;
+  } catch (e) {
+    return false;
+  }
+}
+
+function rememberDismissed(adTitle) {
+  try {
+    localStorage.setItem(DISMISS_KEY, adTitle);
+  } catch (e) {
+    // stockage indisponible (navigation privée stricte) : on ferme quand même
+  }
+}
+
 async function loadAnnouncement() {
   try {
     const response = await fetch("/scripts/annonces/annonces.json");
@@ -21,11 +41,7 @@ async function loadAnnouncement() {
     const currentAd = data[0];
     if (!currentAd) return;
 
-    const dismissedAdTitle = localStorage.getItem(
-      "dismissedAnnouncementTitle"
-    );
-
-    if (dismissedAdTitle === currentAd.title) return;
+    if (isDismissed(currentAd.title)) return;
 
     // Affichage du contenu
     // Espace insécable avant ! ? : ; pour éviter un signe seul à la ligne
@@ -59,10 +75,7 @@ async function loadAnnouncement() {
         `${currentAd.button.text} <i class="fa-solid fa-arrow-right"></i>`;
 
       adButton.addEventListener("click", () => {
-        localStorage.setItem(
-          "dismissedAnnouncementTitle",
-          currentAd.title
-        );
+        rememberDismissed(currentAd.title);
         modal.style.display = "none";
       });
 
@@ -224,9 +237,15 @@ function setupCloseEvents(adTitle) {
   const closeBtn = document.getElementById("close-announcement");
 
   const closeModal = () => {
-    localStorage.setItem("dismissedAnnouncementTitle", adTitle);
+    rememberDismissed(adTitle);
     modal.style.display = "none";
+    document.removeEventListener("keydown", onKeydown);
   };
+
+  const onKeydown = e => {
+    if (e.key === "Escape") closeModal();
+  };
+  document.addEventListener("keydown", onKeydown);
 
   if (closeBtn && !closeBtn.dataset.listenerAdded) {
     closeBtn.addEventListener("click", closeModal);
